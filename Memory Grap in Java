@@ -1,0 +1,60 @@
+/*
+Cách quản lý bộ nhớ trong JAVA
+Chương trình minh họa việc sử dụng các biến trong chương trình và vị trí lưu trữ các biến này
+Chương trình có sử dụng biến static, instance (object), local variable, tương ứng với các vùng nhớ lưu trữ là: Method area, Heap, Stack
++ static variable: Method area memory
++ instance: Heap memory
++ local variable: Stack memory
+
+*/
+import java.util.Scanner;
+
+class Sample{
+	 static int a=100;
+	 int b = 10;
+	 public void Show(){
+		int c = 50;
+		System.out.println(a);	
+		System.out.println(b);	
+		System.out.println(c);	
+	 }
+}
+ 
+public class Main{
+	public static void main(String[] args){
+		 Sample s = new Sample();
+		 s.Show();
+		
+	}
+}
+
+/*
+	Ví dụ thứ 2
+	Chương trình tạo ra một lớp Person, lớp này sẽ được định vị trong vùng Heap, biến tham chiếu p được định vị trong vùng Stack
+	+ Heap được chia thành hai phần: Heap 1 và Heap 2
+	+ Các đối tượng mới được tạo ra sẽ được định vị tại vùng Heap 1, và sẽ được bộ thu gom rác giải phóng khi vùng này đầy.
+	
+	+ Vùng Stack được khởi tạo mỗi khi có một tiến trình trong java khởi chạy, vùng này sẽ lưu trữ:
+		- Các nguyên mẫu hàm
+		- Các biến cục bộ (khai báo trong phương thức)
+		- Các biến tham chiếu tới các object trong vùng Heap
+	+ Heap là vùng bộ nhớ cấp phát động, vùng này được giải phóng bởi bộ thu gom rác của java
+		- Các đối tượng sinh ra bởi lệnh new sẽ được định vị trong vùng Heap
+*/
+class Person{
+	String firstname;
+	String lastname;
+	int age;
+	public Person(String firstname, String lastname, int age){
+		this.firstname = firstname;
+		this.lastname = lastname;
+		this.age = age;
+	}
+	
+	public static void main(String[] agrs){
+		Person p = new Person("Nguyen","An", 30);
+		System.out.println("The firstname: " + p.firstname);
+		System.out.println("The lastname: " + p.lastname);
+		System.out.println("The age: " + p.age);
+	}
+}
