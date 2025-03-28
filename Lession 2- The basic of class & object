@@ -1,0 +1,113 @@
+/*
+Xây dựng chương trình quản lý và tính toán các hình học cơ bản như đoạn thẳng, tam giác và HCN
+1. Lớp Point có tọa độ x, y
++ Phương thức khởi tạo, tính khoảng cách giữa hai điểm
++ Show
+2. Lớp đoạn thẳng
++ Thuộc tính: điểm bắt đầu, điểm kết thúc
++ Phương thức: tính độ dài đoạn thẳng, hiển thị thông tin
+3. Lớp Triangle
++ Thuộc tính: ba đỉnh của tam giác
++ Phương thức: tính diện tích, chu vi và hiển thị
+4. Lớp Rectangle
++ Thuộc tính: hai tọa độ góc trên bên trái và góc dưới bên phải
++ Phương thức: diện tích, chu vi, hiển thị
+5. Lớp Circle
++ Thuộc tính: tâm hình tròn, bán kính
++ Phương thức: diện tích, chu vi và hiển thị
+
+*/
+import java.util.Scanner;
+
+class Point{
+	private double x, y;
+	public Point(){x=y=0;}
+	public Point(int x, int y){
+		this.x = x;
+		this.y= y;
+	}
+	public double getX(){return x;}
+	public double getY(){return y;}
+	public void Show(){
+		System.out.println("(" + x + "," + y + ")");
+	}
+	public double EuclitDistance(Point p2){
+		double d;
+		double d1 = (this.x - p2.getX())*(this.x - p2.getX());
+		double d2 = (this.y - p2.getY())* (this.y - p2.getY());
+		d = Math.sqrt(d1 + d2);
+		return d;
+	}
+}
+class Line{
+	Point p1, p2;
+	public Line(Point p1, Point p2){
+		this.p1= p1;
+		this.p2=p2;
+	}
+	public double Length(){
+		double d = this.p1.EuclitDistance(this.p2);
+		return d;
+	}
+	public void Show(){
+		System.out.println("Line From (" + p1.getX() + "," + p1.getY() + ") to (" + p2.getX() + "," + p2.getY() + ")");
+	}
+}
+class Triangle{
+	private Point A, B, C;
+	public Triangle(Point A, Point B, Point C){
+		this.A = A;
+		this.B = B;
+		this.C = C;
+	}
+	public boolean isTriangle(){
+		double d1 = this.A.EuclitDistance(this.B);
+		double d2 = this.B.EuclitDistance(this.C);
+		double d3 = this.C.EuclitDistance(this.A);
+		if((d1+d2 > d3) && (d2 + d3 > d1) && (d3 + d1 > d2)) return true;
+		else return false;
+	}
+	public double perimeter(){
+		double d1 = this.A.EuclitDistance(this.B);
+		double d2 = this.B.EuclitDistance(this.C);
+		double d3 = this.C.EuclitDistance(this.A);
+		return (d1+d2+d3);
+	}
+	public double area(){
+		double p = this.perimeter();
+		p = p/2;
+		double a = this.A.EuclitDistance(this.B);
+		double b = this.B.EuclitDistance(this.C);
+		double c = this.C.EuclitDistance(this.A);
+		double dt = Math.sqrt(p*(p-a)*(p-b)*(p-c));
+		return dt;
+	}	
+	public void Show()
+	{
+		System.out.println("Triangle A(" + A.getX() + "," + A.getY() + "), B(" + B.getX() + "," + B.getY() + "), C(" + C.getX() + "," + C.getY() + ")");	
+		
+	}
+}
+public class Main{
+	public static void main(String[] args){
+		Point p1 = new Point(1, 1);
+		Point p2 = new Point(10, 1);
+		Point p3 = new Point(5, 10);
+		double d = p1.EuclitDistance(p2);
+		System.out.println("d=" + d);
+		Line l1 = new Line(p1, p2);		
+		l1.Show();
+		System.out.println("The length of line is: " + l1.Length());
+		Triangle tg = new Triangle(p1, p2, p3);
+		if(tg.isTriangle())
+			tg.Show();
+		else {
+			System.out.println("Three point is not a Triangle");
+			return;
+		}
+		
+		System.out.println("The perimeter of Triangle is: " + tg.perimeter());
+		System.out.println("The area of Triangle is: " + tg.area());
+		
+	}
+}
