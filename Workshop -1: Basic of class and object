@@ -1,0 +1,139 @@
+/*
+Chương trình quản lý danh sách nhân viên
+Thuộc tính: id, name, age
+Chức năng: Thêm mới, sửa, xóa, hiển thị, sắp xêp, tìm kiếm
+Data: sử dụng mảng cấu trúc
+
+*/
+import java.util.Scanner;
+
+class Employee{
+	 String id;
+	 String name;
+	 int age;
+	 public Employee()
+	 {
+	 }
+	 public Employee(String id, String name, int age){
+		this.id = id;
+		this.name = name;
+		this.age = age;		
+	 }
+	 public String getId(){return id; }
+	 public String getName(){ return name; }
+	 public int getAge(){return age;}
+	 public void show()
+	 {
+		System.out.print("Employee ID: " + id + ", Name:" + name + ", Age:" + age );
+	 }
+	 public void display(){
+		 System.out.println(String.format("%8s|%-25s|%8d", id, name, age));
+	 }
+	 public void input(){
+		 String id;
+		 String name;
+		 int age;
+		 Scanner sc = new Scanner(System.in);
+		 System.out.print("Please enter the ID:");
+		 id = sc.nextLine();
+		 System.out.print("Please enter the name:");
+		 name = sc.nextLine();
+		 System.out.print("Please enter the age:");
+		 age = Integer.parseInt(sc.nextLine());
+		 this.id = id;
+		 this.name = name;
+		 this.age = age;
+	 }
+}
+
+class EmployeeList{
+	private int size;
+	private Employee[] employees = null;
+	private int count =0;
+	public EmployeeList(int size){
+		this.size = size;
+		employees = new Employee[size];
+	}
+	
+	public int Find(String code){
+		for(int i=0; i<count; i++)
+			if(code.equals(employees[i].getId())){
+				return i;
+			}
+		return -1;
+	}
+	
+	public void add(){
+		if(count == size) {
+			System.out.println("The list is full, you can not to push a new item to the employees");
+			return;
+		}
+		Employee e = new Employee();
+		e.input();
+		employees[count] = e;
+		count++;
+	}
+	public void show(){
+		System.out.println("THE EMPLOYEE LIST");
+		System.out.println(String.format("%8s|%-25s|%8s", "ID", "Name", "Age"));
+		for(int i=0; i<count;i++){
+			Employee e = employees[i];
+			e.display();
+		}
+	}
+	public Employee search(String id){
+		
+		int pos = Find(id);
+		if(pos >=0 && pos <count){
+			return employees[pos];
+		}else{
+			return null;
+		}
+	}
+	
+	
+}
+ 
+public class Main{
+	public static void main(String[] args){	
+		int choice;
+		Scanner sc = new Scanner(System.in);
+		EmployeeList list = new EmployeeList(50);
+		while(true){
+			System.out.println("EMPLOYEE MANAGEMENT SYSTEM");
+			System.out.println("1- Add new employee");
+			System.out.println("2- Display employee list");
+			System.out.println("3- Find the employee");
+			System.out.println("4- Update the information of employee");
+			System.out.println("5- Remove employee");
+			System.out.println("0- Quit");
+			System.out.print("Please choice (1-5; 0-exit):");
+			choice = Integer.parseInt(sc.nextLine());
+			if(choice==0) break;
+			switch(choice){
+				case 1: list.add();
+				
+				break;
+				case 2: list.show();
+						sc.nextLine();
+				break;
+				case 3:
+					 
+					System.out.print("Please enter the id to find:");
+					String id = sc.nextLine();
+					Employee e = list.search(id);
+					if(e!=null){
+						System.out.println("Found the employee with id=" + id);
+						System.out.println("Employee name: " + e.getName());
+					}else{System.out.println("Found not the employee with id=" + id);}
+					break;
+				
+			}
+		}
+		 
+		 
+		
+	}
+}
+
+  
