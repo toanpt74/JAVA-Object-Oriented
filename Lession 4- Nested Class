@@ -1,3 +1,9 @@
+Các lý do cho việc sử dụng các class lồng nhau bao gồm:
+- Đó là một cách hợp lý để nhóm các class chỉ được sử dụng ở một nơi. Nếu một class chỉ hữu ích cho một class khác, thì chúng ta nên nhúng nó vào class đó và giữ hai class đó lại với nhau. 
+Việc lồng các class như vậy làm cho package của chúng ta được sắp xếp hợp lý hơn. 
+- Nó làm tăng tính đóng gói. Ví dụ chúng ta có 2 class A và B, trong đó B cần quyền truy cập vào các thành viên của A mà nếu không sẽ được khai báo là private. Bằng cách ẩn class B trong class A, các thành phần của A có thể được khai báo là private và B có thể truy cập chúng. Ngoài ra, bản thân B có thể bị ẩn so với bên ngoài. 
+- Nó có thể giúp code dễ đọc và dễ bảo trì hơn. Vì việc lồng các class nhỏ trong các class sẽ đặt mã gần hơn với nơi nó được sử dụng.
+
 Java cho phép chúng ta định nghĩa các class lồng đan xen lẫn nhau trong một class. Java gọi đó là nested class (class lồng nhau).
 Các class lồng nhau được chia thành 2 loại là tĩnh và không tĩnh.
 + Các class lồng nhau được khai báo static (tĩnh) được gọi là nested class.
