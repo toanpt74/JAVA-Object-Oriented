@@ -1,0 +1,243 @@
+/*
+Chương trình minh họa việc sử dụng các thuộc tính, phương thức với các bổ từ truy cập private, public,...
+Chương trình sử dụng nhiều lớp với các vai trò khác nhau trong chương trình
+Xây dựng chương trình quản lý thư viện với các tính nawmg như thêm sách, theo dõi thông tin sách, quản lý mượn/trả sách
+Chương trình gồm các lớp
+Yêu cầu chương trình:
++ Quản lý danh sách sách trong thư viện
++ Người dùng có thể mượn sách từ thư viện, nếu còn sách
++ Người dùng có thể trả sách
++ Quản lý thông tin về người dùng các các sách đã mượn
++ Tìm kiếm sách theo isbn, title
+--------------------------
+1. Book
+Thuộc tính: title, author, isbn, isAvailable
+Phương thức: getDetails(): trả về thông tin sách
+    - borrowBook(): Đánh dấu các sách đã mượn
+    - returnBook(): Đánh dấu sách đã trả
+2. Lớp Library
+Thuộc tính:
+    - books: danh sách các cuốn sách trong thư viện
+Phương thức:
+    - addBook()
+    - searchBook()
+    - displayBooks        
+3. Lớp user: quản lý người dùng
+Thuộc tính
+    - name
+    borrowdBooks: danh sách sách mượn
+Phương thức
+    - borrowBook: mượn sách
+    - returnBook: trả sách
+    - getBorrowedBooks: hiển thị danh sách sách mượn
+Viết chương trình tạo giao diện và các chức năng: thêm mới, sửa, xóa, mượn sách, trả sách,...
+*/
+import java.util.Scanner;
+import java.util.ArrayList;
+class Book{
+    private String bookId;
+   private String title;
+   private String author;
+   private String isbn;
+   private boolean  isAvailable;
+   public Book(){} 
+   public Book(String title, String author, String isbn, boolean isAvailable, String bookId){
+       this.title = title;
+       this.author = author;
+       this.isbn = isbn;
+       this.isAvailable = isAvailable;
+       this.bookId = bookId;
+   }
+   public String getBookId(){return bookId;}
+   public String getTitle(){return title;}
+   public void display(){
+       System.out.println("The book: book Id: " + this.bookId + ", title: " + this.title + ", author: " + this.author + ", isbn: " + this.isbn);
+   }
+
+}
+class User{
+    private String Id;
+    private String name;
+    private int age;
+    private String phone;    
+    public ArrayList<Book> borrowedBooks;
+    public User(){}
+    public User(String Id, String name, int age, String phone){
+        this.Id = Id;
+        this.name = name;
+        this.age = age;
+        this.phone = phone;        
+        borrowedBooks = new ArrayList<Book>();
+    }
+    
+    public String getId(){return Id;}
+    public String getName(){return name;}
+    public void displayInfo(){
+        System.out.println("User Id: " + Id + ", Name: " + name + ", Phone: " + phone);
+    }
+    public void displayBorrowedBooks(){
+        System.out.println("The list of borrowed books");
+        for(int i=0; i<borrowedBooks.size(); i++){
+            Book b =(Book) borrowedBooks.get(i);
+            b.display();
+        }
+    }
+    public void borrowedBook(Book b){
+        borrowedBooks.add(b);
+    }
+}
+class Library{
+    public ArrayList<Book> books;
+    public ArrayList<User> users;
+    public Library(){
+        books = new ArrayList<Book>();
+        users = new ArrayList<User>();
+    }
+    public int FindUser(String uid){
+        
+        for(int i=0; i< users.size(); i++)
+        {
+            User user = users.get(i);
+            if(uid.equals(user.getId())) return i;
+        }
+        return -1;
+    }
+    public int FindBook(String bookid){
+        
+        for(int i=0; i< books.size(); i++)
+        {
+            Book  b = books.get(i);
+            if(bookid.equals(b.getBookId())) return i;
+        }
+        return -1;
+    }
+    
+    public void addBook(Book b){
+        books.add(b);
+    }
+    public void addUser(User u){
+        if(FindUser(u.getId()) < 0)
+            users.add(u);
+        else System.out.println("The user " + u.getName() + " is already existed in the Library");
+    }
+    
+    public void borrowedBook(String uid, String bookid)
+    {
+       
+        int u_pos = FindUser(uid);
+        int b_pos = FindBook(bookid);
+        if(u_pos<0) {
+            System.out.println("The user " + uid + " doesn't existed in the Library");
+            return;
+        }
+        if(b_pos<0){
+            System.out.println("The book " + bookid + " doesn't existed in the Library");
+            return;
+        }
+        Book book = books.get(b_pos); 
+        users.get(u_pos).borrowedBook(book);
+    }
+
+    public void showBorrowedBook(String uid){
+       int u_pos = FindUser(uid); 
+        if(u_pos<0) {
+            System.out.println("The user " + uid + " doesn't existed in the Library");
+            return;
+        }
+        users.get(u_pos).displayBorrowedBooks();
+    }  
+    public void show(){
+        System.out.println("User List");
+        for(int i=0; i<users.size(); i++)
+        {
+            System.out.println(users.get(i).getName());
+        }
+        System.out.println("Book List");
+        for(int i=0; i<books.size(); i++)
+        {
+            System.out.println(books.get(i).getTitle());
+        }
+    }  
+
+}
+public class Main{
+	public static void main(String[] args){	
+		int choice;
+		Scanner sc = new Scanner(System.in);
+		Library lib = new Library();
+
+        String bookId;
+        String title;
+        String author;
+        String isbn;
+        String uid;
+        String uname;
+        int age;
+        String phone;
+		while(true){
+			System.out.println("EMPLOYEE MANAGEMENT SYSTEM");
+			System.out.println("1- Add new book");
+            System.out.println("2- Add new user");
+			System.out.println("3- Borrowed Book");
+
+			System.out.println("4- Display borrowed books of user");
+			System.out.println("4- Update the information of employee");
+			System.out.println("5- Remove employee");
+			System.out.println("0- Quit");
+			System.out.print("Please choice (1-5; 0-exit):");
+			choice = Integer.parseInt(sc.nextLine());
+			if(choice==0) break;			 
+            switch(choice){
+                
+                case 1: System.out.println("Please enter the information of the book");
+                    System.out.print("Enter id:");
+                    bookId = sc.nextLine();
+                    System.out.print("Enter title:");
+                    title = sc.nextLine();
+                    System.out.print("Enter author:");
+                    author = sc.nextLine();
+                    System.out.print("Enter isbn:");
+                    isbn= sc.nextLine();
+                    Book b = new Book(title,  author,  isbn, true,  bookId);
+                    lib.addBook(b);
+                    break;
+                case 2: System.out.println("Please enter the information of user");
+                    System.out.print("Enter User Id: ");
+                    uid = sc.nextLine();
+                    System.out.print("Enter User Name: ");
+                    uname = sc.nextLine();
+                    System.out.print("Enter Age: ");
+                    age = Integer.parseInt(sc.nextLine());
+                    System.out.print("Enter phone: ");
+                    phone = sc.nextLine();
+                    User u = new User(uid, uname, age, phone);
+                    lib.addUser(u);
+                    break;
+                case 3:
+                         
+                    System.out.println("Borrowed Book");
+                    System.out.print("Please enter user id: ");
+                    uname = sc.nextLine();
+                    System.out.print("Please enter book id: ");
+                    bookId = sc.nextLine();
+                    lib.borrowedBook(uname, bookId);                    
+                    sc.nextLine();
+                    break;
+                case 4:
+                    System.out.println("Display Borrowed Book");
+                    System.out.print("Please enter user name: ");
+                    uname = sc.nextLine();
+                    lib.showBorrowedBook(uname);
+                    sc.nextLine();
+                    break;
+                case 5:
+                    lib.show();   
+                     sc.nextLine(); 
+                    break;
+            }
+		}
+		 
+		 
+		
+	}
+}
