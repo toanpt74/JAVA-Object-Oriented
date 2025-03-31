@@ -1,3 +1,74 @@
+Java cho phép chúng ta định nghĩa các class lồng đan xen lẫn nhau trong một class. Java gọi đó là nested class (class lồng nhau).
+Các class lồng nhau được chia thành 2 loại là tĩnh và không tĩnh.
++ Các class lồng nhau được khai báo static (tĩnh) được gọi là nested class.
++ Các class lồng nhau không tĩnh được gọi là inner classes.
+Vi du:
+class OuterClass {
+    class NestedClass {
+    }
+}
+class OuterClass {
+    static class StaticNestedClass {
+    }
+}
+1) Class lồng nếu không phải là một static thì chúng có thể truy xuất được đến tất cả các thành phần của class bao ngoài nó, kể cả là private.
+Example: 
+public class ConNguoi {
+
+  private String name;
+
+  private int age;
+
+  public void printInfo() {
+    System.out.println("Name: " + this.name);
+    System.out.println("Age: " + this.age);
+  }
+
+  public class TreCon {
+    public TreCon(String name, int age) {
+      ConNguoi.this.name = name;
+      ConNguoi.this.age = age;
+    }
+  }
+}
+public class Main {
+  public static void main(String[] args) {
+    ConNguoi conNguoi = new ConNguoi();
+
+    ConNguoi.TreCon treCon = conNguoi.new TreCon("Nguyen Van A", 10);
+
+    conNguoi.printInfo();
+  }
+}
+
+// Output
+// Name: Nguyen Van A
+// Age: 10
+-------------
+2) Khác với inner class, class lồng static không truy vấn được đến các thành phần bên trong class bao ngoài nó.
+Và để khởi tạo một nested class thì các bạn thực hiện theo cú pháp sau:
+OuterClass.StaticNestedClass nestedObject = new OuterClass.StaticNestedClass();
+Example:
+public class ConNguoi {
+
+  private String name;
+
+  private int age;
+
+  public void printInfo() {
+    System.out.println("Name: " + this.name);
+    System.out.println("Age: " + this.age);
+  }
+
+  public static class TreCon {
+    public TreCon(String name, int age) {
+      ConNguoi.this.name = name;
+      ConNguoi.this.age = age;
+    }
+  }
+}
+Khi chay chuong trinh se thong bao loi: error: non-static variable this cannot be referenced from a static context
+
 /*
 Chương trình minh họa việc sử dụng các thuộc tính, phương thức với các bổ từ truy cập private, public,...
 Chương trình sử dụng nhiều lớp với các vai trò khác nhau trong chương trình
