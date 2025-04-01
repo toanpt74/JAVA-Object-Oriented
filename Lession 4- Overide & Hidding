@@ -1,0 +1,36 @@
+/*
+Chương trình minh họa override trong java
+Lớp Animal là lớp cha cũng có phương thức sound, lớp Dog là lớp con cũng có phương thức sound
+Khi tạo một đối tượng Animal animal = new Dog() và gọi phương thức sound(), khi đó phương thức sound của lớp con sẽ đè phương thức sound của lớp cha
+
+1. Override là phương thức động, sẽ được gọi trong lúc runtime. Do vậy khi tạo đối tượng thì phương thức trong lớp con (Dog) sẽ được sinh ra và gọi thực hiện
+2. Hidding áp dụng với phương thức static, nó sẽ bị che và được khởi tạo trong lúc compiler
+Ví dụ phương thức makeSound(), khi gọi animal.makeSound() -> Phương thức của lớp cha (Animal) được gọi thực hiện 
+*/
+class Animal
+{
+    public  void sound()
+    {
+        System.out.println("Animal makes a sound");
+    }    
+    public static void makeSound(){
+        System.out.println("Animal makes a sound");
+    }
+}
+class Dog extends Animal{
+    public void sound()
+    {
+        System.out.println("Dog barks");
+    }
+    public static void makeSound(){
+        System.out.println("Dog barks");
+    }
+}
+
+public class Main{
+	public static void main(String[] args){	
+        Animal animal = new Dog();
+        animal.sound(); 
+        animal.makeSound();
+    }
+}    
