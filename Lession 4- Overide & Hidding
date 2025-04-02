@@ -1,4 +1,39 @@
 /*
+    Overload là phương pháp nạp chồng các phương thức trong lập trình hướng đối tượng, cho phép chúng ta sử dụng cùng một tên phương thức, tuy nhiên số đối số của chúng là khác nhau
+*/
+class Product{
+    private String id;
+    private String name;
+    private double price;
+    public Product(){}
+    public Product(String id, String name, double price){
+        this.id = id;
+        this.name = name;
+        this.price = price;
+    }
+
+    public void setData(double price)
+    {
+        this.price = price;
+    }
+    public void setData(String name){
+        this.name = name;
+    }
+    public void show(){
+        System.out.println("Product Name:" + name + ", Price:" + price);
+    }
+
+}
+public class Main{
+	public static void main(String[] args){	
+        Product computer = new Product("01","IBM Lenovo x876", 12000000);
+        computer.setData(12500000);
+        computer.show();
+        
+    }
+}    
+================================================================================
+/*
 Chương trình minh họa override trong java
 Lớp Animal là lớp cha cũng có phương thức sound, lớp Dog là lớp con cũng có phương thức sound
 Khi tạo một đối tượng Animal animal = new Dog() và gọi phương thức sound(), khi đó phương thức sound của lớp con sẽ đè phương thức sound của lớp cha
