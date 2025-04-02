@@ -1,0 +1,129 @@
+/*
+    Sử dụng lớp String để xây dựng chương trình quản lý sinh viên
+    1. Lớp Student có các thuộc tính
+    String name
+    String id
+    int age    
+    + Sử dụng ArrayList để lưu trữ danh sách sinh viên
+    + Các chức năng chính: Thêm sinh viên, hiển thị danh sách, loại bỏ một sinh viên khỏi danh sách, tìm kiếm sinh viên, Sắp xếp danh sách,...
+    Yêu cầu: 
+    + Trường id luôn lưu trữ dạng in hoa
+    + Trường name sẽ lưu trữ thông tin đầy đủ của sinh viên
+    + Khi sắp xếp danh sách sẽ thực hiện sắp xếp theo tên
+    + Danh sách hiển thị gồm các cột STT | Mã số SV | Họ đệm | Tên | Tuổi
+    + Trường name được chuẩn hóa để loại bỏ tất cả các khoảng trắng thừa trong xâu
+
+*/
+import java.util.ArrayList;
+import java.util.Scanner;
+class Student{
+    private String id;
+    private String name;
+    private int age;
+    public Student(){}
+    public Student(String id, String name, int age){
+        this.id = id;
+        this.name = name;
+        this.age = age;
+    }
+    public String getFirstName(){
+        String[] arrName = this.name.split(" ");
+        int L = arrName.length;
+        return arrName[L-1];        
+    }
+    public String getLastName(){
+        String[] arrName = this.name.split(" ");
+        int L = arrName.length;
+        String s="";
+        for(int i=0; i<L-1; i++)
+            s = s + arrName[i] + " ";
+        s = s.trim();
+        return s;
+    }
+    public void show(int i){
+        System.out.printf("%5s|%8s|%10s|%8s|%8d%c",i,this.id, getLastName(), getFirstName(), this.age, '\n');
+    }
+    public void input()
+    {
+        Scanner sc = new Scanner(System.in);
+        String name;
+        String id;
+        int age;
+        System.out.print("Nhap ma sinh vien: ");
+        id = sc.nextLine();
+        id = id.toUpperCase();
+        System.out.print("Ho va ten: ");
+        name = sc.nextLine();
+        name = name.trim();
+        name.replaceAll("\\s+"," ");
+        System.out.print("Nhap tuoi: ");
+        age = Integer.parseInt(sc.nextLine());
+        this.name = name;
+        this.id = id;
+        this.age = age;
+    }
+}
+
+ 
+
+public class Main{
+	public static void main(String[] args){	
+        ArrayList<Student> students = new ArrayList<Student>();
+        int count =0;
+        int chon;
+        Scanner sc = new Scanner(System.in);
+
+        
+        while(true){
+            System.out.println("CHUONG TRINH QUAN LY SINH VIEN");
+            System.out.println("1-Them sinh vien");
+            System.out.println("2-Xoa sinh vien");
+            System.out.println("3-Tim kiem sinh vien");
+            System.out.println("4-Sap xep danh sach");
+            System.out.println("5-Hien thi danh sach");
+            System.out.println("0-Thoat");
+            System.out.print("Chon chuc nang (1-5). Bam phim 0 de ket thuc chuong trinh:");
+            chon = Integer.parseInt(sc.nextLine());
+            if(chon == 0) break;
+            switch(chon){
+                case 1:
+                    Student s = new Student();
+                    s.input();
+                    students.add(s);
+                    count++;
+                    break;
+                case 4:
+                    int n = students.size();
+                    for(int i=0; i<n;i++)
+                        for(int j=i+1; j<n; j++)
+                             {
+                                 Student st1 =(Student) students.get(i);
+                                 Student st2 =(Student) students.get(j);
+                                 String fname1 = st1.getFirstName();
+                                 String fname2 = st2.getFirstName();
+                                 if(fname1.compareTo(fname2) > 0){                                     
+                                     students.set(i, st2);
+                                     students.set(j, st1);
+                                 }
+
+                             }
+                    System.out.println("Da sap xep xong.");
+                    sc.nextLine();
+                    break;
+                case 5:
+                    System.out.println("DANH SACH SINH VIEN");
+                    System.out.printf("%5s|%8s|%10s|%8s|%8s%c","STT","ID", "First Name", "Last Name", "Age", '\n');
+                    for(int i=0; i<students.size(); i++){
+                        Student st = students.get(i);
+                        st.show((i+1));
+                    }
+                    sc.nextLine();
+                    break;
+            }
+        }
+
+    }
+}   
+
+
+
