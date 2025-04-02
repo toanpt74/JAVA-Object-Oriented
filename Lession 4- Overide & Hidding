@@ -68,4 +68,110 @@ public class Main{
         animal.sound(); 
         animal.makeSound();
     }
-}    
+}  
+=============================================================
+/*
+Chương trình minh họa sử dụng interface trong java
+1. Tạo interface PayvmentMethod với các phương thức
++ void pay(double amount)
++ String getPayvmentDetails()
+2. Triển khai các lớp: CreditCardPayvment: thanh toán bằng thẻ tín dụng
+3. EWalletPayvment: thanh toán qua ví điện tử
+4. CashPayvment: thanh toán bằng tiền mặt
+5. Viết lớp PayvmentProcessor: có nhiệm vụ xử lý các giao dịch. Lớp này nhận một đối tượng PayvmentMethod và thực hiện thanh toán
+
+*/
+import java.util.Scanner;
+interface PayvmentMethod{
+    public void pay(double amount);
+    public String getPayvmentDetails();
+}
+
+class CreditCardPayvment implements PayvmentMethod {
+    private String cardNumber;
+    private double accountBalance;
+    public CreditCardPayvment(){}
+    public CreditCardPayvment(String cardNumber, double accountBalance){
+        this.cardNumber= cardNumber;
+        this.accountBalance = accountBalance;
+    }
+    public void pay(double amount){
+        System.out.println("Ban da thanh toan so tien la: " + amount + " qua the tin dung");
+        accountBalance-=amount;
+    }
+    public String getPayvmentDetails(){
+        return "Payvment Method is CreditCard.";
+    }
+}
+class EWalletPayvment implements PayvmentMethod{
+    private String walletId;
+    private double totalMoney;
+    public EWalletPayvment(){}
+    public EWalletPayvment(String walletId, double totalMoney){
+        this.walletId = walletId;
+        this.totalMoney = totalMoney;
+    }
+    public void pay(double amount){
+        System.out.println("Ban da thanh toan so tien la: " + amount + " qua vi dien tu");
+        totalMoney-=amount;
+    }
+    public String getPayvmentDetails(){
+        return "Patvment Method is Electronic Wallet Payvment";
+    }
+}
+class CashPayvment implements PayvmentMethod{
+    public void pay(double amount){
+        System.out.println("Ban da thanh toan so tien la: " + amount);
+    }
+    public String getPayvmentDetails(){
+        return "Payvment Method is Cashing";
+    }
+}
+
+class PayvmentProcessor{
+     
+    public PayvmentProcessor(){}
+    public void processPayvment(PayvmentMethod payvmentMethod, double amount){
+         System.out.println(payvmentMethod.getPayvmentDetails());
+         payvmentMethod.pay(amount);
+    }    
+}
+
+public class Main{
+	public static void main(String[] args){	
+        int chon;
+        double amount;
+        Scanner sc = new Scanner(System.in);
+        PayvmentMethod creditCard = new CreditCardPayvment("1177-8872-9908-1154", 10000000);
+        PayvmentMethod eWalletPayvment = new EWalletPayvment("pttoan", 2000000);
+        PayvmentMethod cash = new CashPayvment();
+
+        while(true){        
+            System.out.println("Payvment Example");                        
+            System.out.println("1-Credit Card Payvment");
+            System.out.println("2-Electronic Wallet Payvment");
+            System.out.println("3-Cash Payvment");
+            System.out.print("Choice the Payvment method (1-3 | 0 - Quit):");
+            chon = Integer.parseInt(sc.nextLine());
+            if(chon == 0) break;
+            System.out.print("Enter the amount to pavment:");
+            amount = Double.parseDouble(sc.nextLine());            
+            PayvmentProcessor processor = new PayvmentProcessor();
+            switch(chon){
+                case 1: processor.processPayvment(creditCard, amount);    
+                    sc.nextLine();                
+                    break;
+                case 2: processor.processPayvment(eWalletPayvment, amount);
+                    sc.nextLine();
+                    break;
+                case 3: processor.processPayvment(cash, amount);
+                    sc.nextLine();
+                    break;
+            }
+            
+        }
+
+    }
+}   
+
+
