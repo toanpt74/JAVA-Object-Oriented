@@ -173,5 +173,80 @@ public class Main{
 
     }
 }   
+=====================================================================
+Lop truu tuong trong java
+/*
+    Lớp trừu tượng là một lớp đặc biệt trong java, lớp này không thể tạo ra các instance, nó được sử dụng để làm khung cho các lớp khác
+    Lớp trừu tượng thường được sử dụng làm khung mẫu cho các lớp con
+    Chú ý khi kế thừa các lớp con phải triển khai tất cả các phương thức của lớp trừu tượng
+*/
+ 
+import java.util.Scanner;
+abstract class shape{
+    abstract public double perimeter();
+    abstract public double area();
+    abstract public void setColor(String color);
+    abstract public void show();
+}
+
+class Circle extends shape {
+    private double r;
+    private String color;
+    public Circle(){}
+    public Circle(double r, String color){
+        this.r = r;
+        this.color = color;
+    }
+    public double perimeter(){
+        return Math.PI * r * 2;
+    }
+    public double area(){
+        return Math.PI*r*r;
+    }
+    public void setColor(String color){
+        this.color = color;
+    }
+    public void show(){
+        System.out.println("The circle with R=" + this.r + ", Color: " + color);
+        System.out.println("Perimeter of circle: " + perimeter() + ", Area: " + area());
+    }
+}
+
+class Rectangle extends shape{
+    private double width;
+    private double height;
+    private String color;
+    public Rectangle(){}
+    public Rectangle(double width, double height, String color){
+        this.width = width;
+        this.height = height;
+        this.color = color;
+    }
+    public double perimeter(){
+        return 2*(width + height);
+    }
+    public double area(){
+        return width*height;
+    }
+    public void setColor(String color){
+        this.color = color;
+    }
+     public void show(){
+        System.out.println("The rectangle width =" + this.width + ", height=" + height + ", Color: " + color);
+        System.out.println("Perimeter of rectangle: " + perimeter() + ", Area: " + area());
+    }
+}
+public class Main{
+	public static void main(String[] args){	
+        Circle c1 = new Circle(3,"Blue");
+        c1.show();
+        Circle c2 = new Circle(4, "Red");
+        c2.show();  
+        Rectangle r1 = new Rectangle(2, 4, "Green");      
+        r1.show();
+        r1.setColor("Yellow");
+        r1.show();
+    }
+}   
 
 
