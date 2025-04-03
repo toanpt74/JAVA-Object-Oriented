@@ -134,6 +134,42 @@ public class Main{
 
         
     }
+} 
+==============================================
+Vi du ve: Excaption Propagation trong java
+/*
+   Exception Propagation là quá trình lan truyền ngoại lệ trong java, khi một phương thức A gọi một phương thức B, nếu phương thức B không xử lý ngoại lệ,
+   không dùng try...catch, thì ngoại lệ đó sẽ được chuyển lên phương thức gọi nó (phương thức A) và quá trình lan truyền sẽ tiếp tục như vậy cho đến khi ngoại lệ được xử lý
+   hoặc đến hàm main()
+
+*/
+
+import java.io.BufferedReader;
+import java.io.FileReader;
+import java.io.IOException;
+import java.util.Scanner;
+public class Main{
+	
+    public static void A(){
+        throw new ArithmeticException("Loi chia cho khong");
+    }
+    public static void B(){
+        A();
+    }
+    public static void C(){
+        try{
+            B();
+        }catch(ArithmeticException e)
+        {
+            System.out.println("Ngoai le da duoc xu ly trong phuong thuc C, " + e.getMessage());
+        }
+    }
+    public static void main(String[] args){	
+         C();
+
+        
+    }
 }   
+
 
 
