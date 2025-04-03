@@ -101,5 +101,39 @@ public class Main{
         
     }
 }   
+===============================================
+Vi du ve throw exception
+/*
+   throw exception là một có chế xử lý ngoại lệ trong java, khi lập trình nếu cần xử lý một tình huống đặc biệt nào đó, chúng ta sẽ sử dụng từ khóa throw để "ném" ra một ngoại lệ
+
+*/
+
+import java.io.BufferedReader;
+import java.io.FileReader;
+import java.io.IOException;
+import java.util.Scanner;
+public class Main{
+	
+    public static void checkAge(int age){
+        if(age < 18){
+            throw new IllegalArgumentException("Ban chua du tuoi de su dung dich vu nay.");
+        }
+        System.out.println("OK, xin moi ban trai nghiem dich vu.");
+    }
+
+    public static void main(String[] args){	
+         int age;
+         Scanner sc = new Scanner(System.in);
+         System.out.print("Nhap tuoi: ");
+         age = Integer.parseInt(sc.nextLine());
+         try{
+             checkAge(age);
+         }catch(IllegalArgumentException e){
+             System.out.println("Da xay ra loi: " + e.getMessage());
+         }
+
+        
+    }
+}   
 
 
