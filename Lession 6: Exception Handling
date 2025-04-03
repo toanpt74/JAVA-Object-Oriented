@@ -1,0 +1,31 @@
+/*
+    Chương trình minh họa exception trong java
+    + Khai báo một mảng a có 5 phần tử
+    + Vòng lặp duyệt từ a[0] đến a[9] và in ra giá trị của a[i] => Xuất hiện ngoại lệ do vượt quá chỉ số mảng
+    => thông báo lỗi: Index 5 out of bounds for length 5
+    + Sử dụng khối try ... catch để xử lý các ngoại lệ
+
+    Có hai loại ngoại lệ trong java là Checked exception và Runtime Exception
+    1. Checked Exception: là ngoại lệ kiểm tra bởi trình biên dịch (compiler). Nếu mã có xảy ra ngoại lệ thì phải xử lý qua cơ chế try..catch (ví dụ: IOException)
+    + Các ngoại lệ này thường dự đoán trước và có liên quan đến các tính huống như nhập/xuất, truy xuất CSDL, tệp tin,...
+    2. Runtime exception: Đây là ngoại lệ chỉ xảy ra khi chương trình đang chạy. Trình biên dịch không bắt buộc phải xử lý hoặc khai báo chúng
+    ví dụ: NullPointerException, ArrayIndexOutOfBoundsException,....
+    + Thường do lỗi logic của lập trình viên, ví dụ như truy cập phần tử không tồn tại trong mảng.
+    
+
+*/
+
+
+public class Main{
+	public static void main(String[] args){	
+        int[] a ={1,2,3,4,5};
+        int n=10;
+        try{
+            for(int i=0; i<n; i++)
+                System.out.println("a[" + i + "]=" + a[i]);
+        } catch(Exception e){
+            System.out.println(e);
+        }
+        
+    }
+}   
