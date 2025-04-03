@@ -1,0 +1,80 @@
+/*
+Chương trình sử dụng các đối tượng trong collection quản lý đơn hàng
+Các chức năng
+1. Thêm đơn hàng mới: các đơn hàng gồm các trường thông tin
++ mã đơn hàng
++ Tên khách hàng
++ Danh sách sản phẩm
++ Số lượng
++ Tổng đơn giá
+2. Cập nhật trạng thái đơn hàng: Đang xử lý, Đang giao hàng, hoàn tất
+3. Xem danh sách đơn hàng
+4. Tìm kiếm đơn hàng
+5. Tính tổng doanh thu dựa trên các đơn hàng
+
+Sử dụng các lớp đối tượng sau
++ ArrayList quản lý danh sách các đơn hàng
++ HashMap: quản lý thông tin sản phẩm trong mỗi đơn hàng
++ Comparator sắp xếp danh sách đơn hàng theo các tiêu chí
+
+*/
+
+import java.io.BufferedReader;
+import java.io.FileReader;
+import java.io.IOException;
+import java.util.Scanner;
+import java.util.ArrayList;
+import java.lang.Comparable;
+import java.util.Comparator;
+import java.util.Collections;
+class product implements Comparable<product>{
+    private String productName;
+    private double price;
+    private int quantity;
+    public product(){}
+    public product(String productName, double price, int quantity)
+    {
+        this.productName = productName;
+        this.price = price;
+        this.quantity = quantity;
+    }
+    public double getPrice(){return price;}
+
+    public void show(){
+        System.out.println("Product Name: " + productName + ", Price: " + price + ", Quantity: " + quantity);
+    }
+    public int compareTo(product p){
+        if(this.price == p.getPrice()) return 0;
+        else if(this.price > p.getPrice()) return 1;
+        else return -1;
+    }
+}
+
+class order{
+    private String orderId;
+    private String customerName;
+    private List<product> products;
+    private String status;
+    public order(){}
+    
+}
+public class Main{
+	public static void main(String[] args){	
+        ArrayList<product> products = new ArrayList<product>();
+        products.add(new product("Sua ong tho",5000, 1));
+        products.add(new product("Banh gao",3000, 1));
+        products.add(new product("Thit lon vai",55000, 1));
+        
+        for(int i=0; i<products.size(); i++)
+        {
+            product p = products.get(i);
+            p.show();
+        }
+        Collections.sort(products);
+        for(int i=0; i<products.size(); i++)
+        {
+            product p = products.get(i);
+            p.show();
+        }
+    }
+}   
