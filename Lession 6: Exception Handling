@@ -144,5 +144,131 @@ Vi du ve: Excaption Propagation trong java
 
 */
 
+import java.io.BufferedReader;
+import java.io.FileReader;
+import java.io.IOException;
+import java.util.Scanner;
+import java.util.ArrayList;
+class InsufficientFundsException extends Exception{
+    public InsufficientFundsException(String message){
+        super(message);
+    }
+}
+
+class BankAccount{
+    private String account;
+    private double balance;
+    public BankAccount(){}
+    public BankAccount(String account, double balance){
+        this.account = account;
+        this.balance = balance;
+    }
+    public void deposit(double amount){
+        if(amount <=0){
+            throw new IllegalArgumentException("So tien gui vao tai khoan phai lon hon 0");
+        }
+        balance+=amount;
+        System.out.println("Ban da chuyen thanh cong " + amount + " vao tai khoan, so du la: " + balance);
+    }
+    public void withDraw(double amount) throws InsufficientFundsException{
+        if(amount <=0){
+            throw new IllegalArgumentException("So tien rut phai lon hon 0");
+        }
+        if(amount > balance){
+            throw new InsufficientFundsException("So du khong du de thuc hien giao dich nay");
+        }
+        balance-=amount;
+        System.out.println("Ban da rut thanh cong so tien: " + amount + ", so du tai khoan: " + balance);
+    }
+    public void show(){
+        System.out.println("Bank account: " + account + ", Balance: " + balance);
+    }
+    public String getAccount(){
+        return account;
+    }
+}
+
+public class Main{	     
+    public static void main(String[] args){	
+        int chon;
+        ArrayList<BankAccount> bankAccounts = new ArrayList<BankAccount>();
+        Scanner sc= new Scanner(System.in);
+        String account="";
+        double amount=0;
+        boolean check = true;
+        while(true){
+            System.out.println("CHUONG TRINH QUAN LY TAI KHOAN NGAN HANG");
+            System.out.println("1-Them tai khoan");
+            System.out.println("2-Xoa tai khoan");
+            System.out.println("3-Sua tai khoan");
+            System.out.println("4-Xem thong tin tai khoan");
+            System.out.println("5-Nap tien vao tai khoan");
+            System.out.println("6-Rut tien trong tai khoan");
+            System.out.println("0-Thoat");
+            System.out.print("Chon chuc nang (1-6), bam phim 0 de thoat chuong trinh:");
+            chon = Integer.parseInt(sc.nextLine()); 
+            if(chon ==0) break;
+            switch(chon){
+                case 1:
+                    check = true;
+                    System.out.println("NHAP CAC THONG TIN TAI KHOAN");
+                    System.out.print("Nhap so tai khoan: ");
+                    account = sc.nextLine();
+                    while(check){
+                        try{
+                            System.out.print("Nhap so tien: ");
+                            amount = Double.parseDouble(sc.nextLine());
+                            check = false;
+
+                        }catch(Exception e){
+                            System.out.println("Loi nhap du lieu, " + e.getMessage());                            
+                        }
+                    }
+                    BankAccount newAccount = new BankAccount(account, amount);
+                    bankAccounts.add(newAccount);
+                    break;
+                case 4:
+                    System.out.println("DANH SACH TAI KHOAN TRONG NGAN HANG");
+                    for(int i=0; i<bankAccounts.size();i++)
+                    {
+                        BankAccount acc = bankAccounts.get(i);
+                        acc.show();
+                    }
+                    sc.nextLine();
+                    break;
+                case 5:
+                    check = true;
+                    System.out.println("NAP TIEN VAO TAI KHOAN");
+                    System.out.print("Nhap so tai khoan: ");
+                    account = sc.nextLine();
+                    BankAccount acc = null;
+                    for(int i=0; i<bankAccounts.size(); i++){
+                        if(account.equals(bankAccounts.get(i).getAccount())){
+                            acc = bankAccounts.get(i);
+                        }                           
+                    }
+                    if(acc == null) return;
+
+                    while(check){
+                        try{
+                            System.out.print("Nhap so tien: ");
+                            amount = Double.parseDouble(sc.nextLine());
+                            check = false;
+
+                        }catch(Exception e){
+                            System.out.println("Loi nhap du lieu, " + e.getMessage());                            
+                        }
+                    }
+                    try{
+                        acc.deposit(amount);
+                    }catch(IllegalArgumentException e){
+                        System.out.println("Xay ra loi: " + e.getMessage());
+                    }
+                    sc.nextLine();
+                    break;
+            }
+        }                 
+    }
+}  
  
 
