@@ -144,32 +144,5 @@ Vi du ve: Excaption Propagation trong java
 
 */
 
-import java.io.BufferedReader;
-import java.io.FileReader;
-import java.io.IOException;
-import java.util.Scanner;
-public class Main{
-	
-    public static void A(){
-        throw new ArithmeticException("Loi chia cho khong");
-    }
-    public static void B(){
-        A();
-    }
-    public static void C(){
-        try{
-            B();
-        }catch(ArithmeticException e)
-        {
-            System.out.println("Ngoai le da duoc xu ly trong phuong thuc C, " + e.getMessage());
-        }
-    }
-    public static void main(String[] args){	
-         C();
-
-        
-    }
-}   
-
-
+ 
 
