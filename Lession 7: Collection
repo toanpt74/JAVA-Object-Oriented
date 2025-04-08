@@ -254,4 +254,83 @@ public class Main{
        }
     }
 }   
+==================================================================
+Generic
+------------------------------------------------------------------------
+/*
+Chương trình sử dụng các đối tượng trong collection quản lý đơn hàng
+Các chức năng
+1. Thêm đơn hàng mới: các đơn hàng gồm các trường thông tin
++ mã đơn hàng
++ Tên khách hàng
++ Danh sách sản phẩm
++ Số lượng
++ Tổng đơn giá
+2. Cập nhật trạng thái đơn hàng: Đang xử lý, Đang giao hàng, hoàn tất
+3. Xem danh sách đơn hàng
+4. Tìm kiếm đơn hàng
+5. Tính tổng doanh thu dựa trên các đơn hàng
+
+Sử dụng các lớp đối tượng sau
++ ArrayList quản lý danh sách các đơn hàng
++ HashMap: quản lý thông tin sản phẩm trong mỗi đơn hàng
++ Comparator sắp xếp danh sách đơn hàng theo các tiêu chí
+
+*/
+
+import java.io.BufferedReader;
+import java.io.FileReader;
+import java.io.IOException;
+import java.util.Scanner;
+import java.util.ArrayList;
+import java.lang.Comparable;
+import java.util.Comparator;
+import java.util.Collections;
+import java.util.Vector;
+import java.util.Arrays;
+
+class Box<T>{
+    private T width;
+    private T height;
+    public Box(T width, T height){
+        this.width = width;
+        this.height = height;
+    }
+    public void show(){
+        System.out.println("Box w = " + width + ", h = " + height);
+    }
+} 
+
+class GenericArray<T>{
+    public static <T> T get(int i, T[]arr){
+        return arr[i];
+    }
+    public static<T> void output(T[]arr){
+        for(T x:arr)
+            System.out.print(x + ", ");
+        System.out.println();
+    }
+    public static <T> void sort(T[] arr){
+        Arrays.sort(arr);
+    }
+}
+
+public class Main{
+	public static void main(String[] args){	
+        Integer a[]={4, 6, 12, 8, 19, 32, 1};
+        GenericArray obj = new GenericArray();
+        obj.output(a);
+        System.out.println("Get an element from array");
+        Integer x = obj.get(1, a);
+        System.out.println(x);
+
+        Double d[] ={1.1, 3.3, 2.2, 4.4};
+        obj.output(d);
+        GenericArray <Double> g = new GenericArray();
+        g.output(d);
+
+
+    }
+}   
+
 
