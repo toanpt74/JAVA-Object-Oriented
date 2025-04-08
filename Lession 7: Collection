@@ -78,3 +78,180 @@ public class Main{
         }
     }
 }   
+======================================================================
+/*
+Chương trình sử dụng các đối tượng trong collection quản lý đơn hàng
+Các chức năng
+1. Thêm đơn hàng mới: các đơn hàng gồm các trường thông tin
++ mã đơn hàng
++ Tên khách hàng
++ Danh sách sản phẩm
++ Số lượng
++ Tổng đơn giá
+2. Cập nhật trạng thái đơn hàng: Đang xử lý, Đang giao hàng, hoàn tất
+3. Xem danh sách đơn hàng
+4. Tìm kiếm đơn hàng
+5. Tính tổng doanh thu dựa trên các đơn hàng
+
+Sử dụng các lớp đối tượng sau
++ ArrayList quản lý danh sách các đơn hàng
++ HashMap: quản lý thông tin sản phẩm trong mỗi đơn hàng
++ Comparator sắp xếp danh sách đơn hàng theo các tiêu chí
+
+*/
+
+import java.io.BufferedReader;
+import java.io.FileReader;
+import java.io.IOException;
+import java.util.Scanner;
+import java.util.ArrayList;
+import java.lang.Comparable;
+import java.util.Comparator;
+import java.util.Collections;
+class product implements Comparable<product>{
+    private String productName;
+    private double price;
+    private int quantity;
+    public product(){}
+    public product(String productName, double price, int quantity)
+    {
+        this.productName = productName;
+        this.price = price;
+        this.quantity = quantity;
+    }
+    public double getPrice(){return price;}
+    public String getProductName(){return productName;}
+    public void show(){
+        System.out.println("Product Name: " + productName + ", Price: " + price + ", Quantity: " + quantity);
+    }
+    public void display(int stt){
+        System.out.println(stt + " - Product Name: " + productName + ", Price: " + price );
+    }
+    public int compareTo(product p){
+        if(this.price == p.getPrice()) return 0;
+        else if(this.price > p.getPrice()) return 1;
+        else return -1;
+    }
+}
+
+class order{
+    private String orderId;
+    private String customerName;
+    private ArrayList<product> products = new ArrayList<product>();
+    private String status;
+    public order(){
+
+    }
+    public order(String orderId, String customerName, String status){
+        this.orderId = orderId;
+        this.customerName = customerName;
+        this.status = status;
+    }
+    public void show(){
+        System.out.println("Order ID: " + this.orderId);
+        System.out.println("Customer Name: " + customerName);
+        System.out.println("Status: " + status);
+        System.out.println("Product List");
+        for(int i=0; i<products.size(); i++)
+        {
+            product p = products.get(i);
+            p.show();
+        }
+    }
+    public int FindProduct(String productName){
+        for(int i=0; i<products.size(); i++){
+            if(productName.equals(products.get(i).getProductName())){
+                return i;
+            }
+        }
+        return -1;
+    }
+    public void addProduct(product p){
+        String name = p.getProductName();
+        if(FindProduct(name)>=0) {
+            System.out.println("The product " + name + " is already exist in the order");
+            return;
+        }
+        products.add(p);
+    }
+    public void removeProduct(String name){
+        int p = FindProduct(name);
+        if(p >=0){
+            products.remove(p);
+        }else{
+            System.out.println("There is no product " + name + " in order");
+            return;
+        }
+    }
+
+
+}
+public class Main{
+	public static void main(String[] args){	
+       int chon;
+       ArrayList<order> orders = new ArrayList<order>();
+       ArrayList<product> lstProducts = new ArrayList<product>();
+        Scanner sc= new Scanner(System.in);
+
+       String productName;
+       double price;
+       int quantity; 
+       String orderId="";
+       String customerName ="";
+       String orderStatus ="";
+       while(true){
+            System.out.println("ORDER MANAGEMENT");
+            System.out.println("1-Product management");
+            System.out.println("2-Add order");
+            System.out.println("3-Display order");
+            System.out.println("4-Update order");
+            System.out.println("5-Sort");
+            System.out.println("0-Quit");
+            System.out.print("Please choice (1-6), Enter 0 to quit:");
+            chon = Integer.parseInt(sc.nextLine()); 
+            if(chon ==0) break;
+            switch(chon){
+                case 1:
+                    System.out.println("Please enter the information of product");
+                    while(true){
+                        System.out.print("Enter Product Name (Enter to exit):");
+                        productName = sc.nextLine();
+                        if(productName =="") break;
+                        System.out.print("Enter price:");
+                        price = Double.parseDouble(sc.nextLine());
+                        System.out.print("Enter quantity: ");
+                        quantity = Integer.parseInt(sc.nextLine());
+                        product p = new product(productName, price, quantity);
+                        lstProducts.add(p);
+                        System.out.println("Enter to continue");
+                        sc.nextLine();
+                    }
+                    break;
+                case 2:
+                    int stt;
+                    System.out.print("Please enter the order Id:");
+                    orderId = sc.nextLine();
+                    System.out.print("Please enter customer name:"); 
+                    customerName = sc.nextLine();
+                    System.out.print("Please enter status: ");
+                    orderStatus = sc.nextLine();    
+                    order ord = new order(orderId, customerName, orderStatus);
+                    System.out.println("Please choice the product to add your order");
+                    while(true){
+                        for(int i=0; i<lstProducts.size(); i++){
+                            product p =lstProducts.get(i);
+                            p.display((i+1));
+                        }
+                        System.out.print("Please enter the number from 1 to " + lstProducts.size() + ", enter 0 to exit:");
+                        stt = Integer.parseInt(sc.nextLine());
+                        if(stt == 0) break;
+                        product p1 = lstProducts.get(stt-1);
+                        ord.addProduct(p1);
+                    }
+                    orders.add(ord);
+                    break;                    
+            }
+       }
+    }
+}   
+
