@@ -331,6 +331,72 @@ public class Main{
 
 
     }
-}   
+} 
+========================================================
+/*
+Chương trình mình họa việc sử dụng generic cho bài toán quản lý giao dịch ngân hàng
+Chúng ta sẽ sử dụng generic để quả lý các lớp khách hàng khác nhau như: khách hàng cá nhân, khác hàng doanh nghiệp,..
+1. Xây dựng lớp TransactionManager<T> để quản lý các giao dịch
+	+ Thuộc tính transactions để lưu trữ một danh sách các giao dịch
+	+ Phương thức: 
+		- addTransaction: thêm một giao dịch
+		- show: hiển thị thông tin các giao dịch
+2. Lớp Transaction: quản lý giao dịch cá nhân
+	+ Thuộc tính: accountNumber, amount
+	+ Phương thức: toString()
+3. Lớp BussinessTransaction: quản lý các giao dịch doanh nghiệp
+		+ Thuộc tính: bussinessName, accountNumber, amount
+		+ Phương thức: toString()
+*/
+import java.util.ArrayList;
+import java.util.List;
+
+class TransactionManager<T>{
+	private List<T> transactions = new ArrayList<>();
+	public void addTransaction(T transaction){
+		transactions.add(transaction);
+	}
+	public void show(){
+		for(T t:transactions){
+			System.out.println(t);
+		}
+	}
+}
+class Transaction{
+	private String accountNumber;
+	private double amount;
+	public Transaction(String accountNumber, double amount){
+		this.accountNumber = accountNumber;
+		this.amount = amount;
+	};
+	public String toString(){
+		return "Account Number: " + accountNumber +", Amount: " + amount;
+	}
+}
+class BussinessTransaction extends Transaction{
+	private String bussinessName;
+	public BussinessTransaction(String accountNumber, double amount, String bussinessName){
+		super(accountNumber, amount);
+		this.bussinessName = bussinessName;
+	}
+	public String toString(){
+		return super.toString() + ", Bussiness Name: " + bussinessName;
+	}
+}
+public class Main{
+	public static void main(String[] args){
+		 //Quản lý các giao dịch cá nhân
+		 TransactionManager<Transaction> personalTransactions = new TransactionManager<>();
+		 personalTransactions.addTransaction(new Transaction("11221", 5000));
+		 personalTransactions.addTransaction(new Transaction("11231", 10000));
+		 System.out.println("Personal Transaction");
+		 personalTransactions.show();
+		 TransactionManager<BussinessTransaction> bussinessTransactions = new TransactionManager<>();
+		 bussinessTransactions.addTransaction(new BussinessTransaction("99221", 100000000, "ACB"));
+		 bussinessTransactions.addTransaction(new BussinessTransaction("98341", 800000000, "Viettin"));
+		 System.out.println("Bussiness Transaction");
+		 bussinessTransactions.show();
+	}
+}
 
 
