@@ -1,0 +1,98 @@
+/*
+Bài tập quản lý nhân viên
+1. Xây dưng lớp Employee với các thuộc tính: code, name, salary
+2. Các chức năng cơ bản
+Adding new employee
+Removing employee.
+Promoting the salary of an employee.
+Listing employee details.
+Save the list to file
+Quit
+
+Dữ liệu được lưu vào tệp employee.txt
+Cấu trúc tệp: lưu mỗi nhân viên trên một dòng, các thông tin cách nhau bởi dấu #.
+
+*/
+import java.io.*;
+import java.util.Date;
+import java.util.ArrayList;
+import java.util.Scanner;
+import java.lang.Comparable;
+import java.util.StringTokenizer;
+class employee implements Comparable {
+	private String code;
+	private String name;
+	private double salary;
+	public employee(){}
+	public employee(String code, String name, double salary){
+		this.code = code;
+		this.name = name;
+		this.salary = salary;
+	}
+	public String getName(){
+		return this.name;
+	}
+	public void show(){
+		System.out.println("Employee code: " + code + ", Name:" + name + ", Salary: " + salary);
+	}
+	public int compareTo(Object obj){
+		employee e = (employee)obj;
+		return this.name.compareTo(e.getName());
+	}
+	public void display(int i){
+		System.out.printf("%5s|%10s|%15s|%6.2f%c",i,this.code, this.name, this.salary,'\n');
+	}
+	public void writeTiFile(String filename){
+		try{
+			File f = new File(filename);
+			FileWriter writer = new FileWriter(f, true);
+			PrintWriter pw = new PrintWriter(writer);
+			pw.println(this.code + "#" + this.name + "#" + this.salary);
+			pw.close();
+		}catch(Exception e){
+		}
+		
+		
+	}
+}
+class employeeList {
+	private ArrayList<employee> employees = new ArrayList<>();
+	public void readFile(String fName){
+		try{
+			File f = new File(fName);
+			if(!f.exists()) return;
+			FileReader fr = new FileReader(f);
+			BufferedReader bf = new BufferedReader(fr);
+			String details;
+			while( (details = bf.readLine())!=null){
+				StringTokenizer token = new StringTokenizer(details,"#");
+				String code = token.nextToken();
+				String name = token.nextToken();
+				double salary = Double.parseDouble(token.nextToken());
+				employee e = new employee(code, name, salary);
+				employees.add(e);
+			}
+		}
+		catch(Exception ex){}
+	}
+	
+	public void show(){
+		for(employee e:employees){
+			e.show();
+		}
+	}
+}
+
+public class Main{
+	public static void main(String[] args){
+		String filename ="employee.txt"; 
+		/*employee e = new employee("01","Nam", 12);
+		e.display(1);
+		System.out.println("ABC");
+		e.writeTiFile("employee.txt");*/
+		
+		employeeList emp = new employeeList();
+		emp.readFile(filename);
+		emp.show();
+	}
+}
