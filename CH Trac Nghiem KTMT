@@ -1,0 +1,266 @@
+https://yjdoc2.github.io/8086-emulator-web/compile
+
+CAU HOI TB
+==============================
+Câu 1
+Xét lệnh hợp ngữ MOVE [100H], AX. Khẳng định nào đúng?
+Chuyển nội dung trong thanh ghi AX vào bộ nhớ có địa chỉ là 100H
+Chuyển giá trị 100 ở hệ hexa vào thanh ghi AX
+Chuyển nội dung trong thanh ghi AL vào bộ nhớ có địa chỉ là 100H
+Cộng giá trị của thanh ghi AX với 100H và lưu kết quả vào AX
+Đáp án đúng: Chuyển nội dung trong thanh ghi AX vào bộ nhớ có địa chỉ là 100H
+Vì theo ý nghĩa của lệnh MOVE
+Tham khảo: bài 4, phần 2: Hợp ngữ và toán hạng
+
+Câu 2: Xét lệnh hợp ngữ MOVE AX, [200H]. Khẳng định nào đúng?
+
+Chuyển nội trong bộ nhớ có địa chỉ là 100H vào thanh ghi AX
+Chuyển giá trị 100 ở hệ hexa vào thanh ghi AX
+Chuyển nội dung trong thanh ghi AL vào bộ nhớ có địa chỉ là 100H
+Cộng giá trị của thanh ghi AX với 100H và lưu kết quả vào AX
+Đáp án đúng: Chuyển nội trong bộ nhớ có địa chỉ là 100H vào thanh ghi AX
+Vì theo ý nghĩa của lệnh MOVE
+Tham khảo: bài 4, phần 2: Hợp ngữ và toán hạng
+
+Câu 3: Xét lệnh hợp ngữ MOVE AX, [200H]. Khẳng định nào đúng?
+Lệnh này làm việc ở chế độ địa chỉ trực tiếp (Direct)
+Lệnh này làm việc ở chế độ địa chỉ tức thời (Immediate)
+Lệnh này làm việc ở chế độ địa chỉ gián tiếp (Indirect)
+Lệnh này làm việc ở chế độ địa chỉ thanh ghi (Register)
+
+Đáp án đúng: Lệnh này làm việc ở chế độ địa chỉ trực tiếp (Direct)
+Vì theo ý nghĩa của các chế độ địa chỉ trong kiến trúc tập lệnh của bộ vi xử lý
+Tham khảo: bài 4, phần 1: Giới thiệu kiến trúc tập lệnh
+
+Câu 4: Xét lệnh hợp ngữ MOVE AX, BX. Khẳng định nào đúng?
+Lệnh này làm việc ở chế độ địa chỉ thanh ghi (Register)
+Lệnh này làm việc ở chế độ địa chỉ trực tiếp (Direct)
+Lệnh này làm việc ở chế độ địa chỉ tức thời (Immediate)
+Lệnh này làm việc ở chế độ địa chỉ gián tiếp (Indirect)
+
+
+Đáp án đúng: Lệnh này làm việc ở chế độ địa chỉ thanh ghi (Register)
+Vì theo ý nghĩa của các chế độ địa chỉ trong kiến trúc tập lệnh của bộ vi xử lý
+Tham khảo: bài 4, phần 1: Giới thiệu kiến trúc tập lệnh
+
+Câu 5: Xét lệnh hợp ngữ MOVE AX, [BX]. Khẳng định nào đúng?
+Lệnh này làm việc ở chế độ địa chỉ gián tiếp (Indirect)
+Lệnh này làm việc ở chế độ địa chỉ thanh ghi (Register)
+Lệnh này làm việc ở chế độ địa chỉ trực tiếp (Direct)
+Lệnh này làm việc ở chế độ địa chỉ tức thời (Immediate)
+
+Đáp án đúng: Lệnh này làm việc ở chế độ địa chỉ gián tiếp (Indirect)
+Vì theo ý nghĩa của các chế độ địa chỉ trong kiến trúc tập lệnh của bộ vi xử lý
+Tham khảo: bài 4, phần 1: Giới thiệu kiến trúc tập lệnh
+
+Câu 6: Xét lệnh hợp ngữ MOVE AX, [BX + SI]. Khẳng định nào đúng?
+Lệnh này làm việc ở chế độ địa chỉ dịch chuyển (Displacement)
+Lệnh này làm việc ở chế độ địa chỉ thanh ghi (Register)
+Lệnh này làm việc ở chế độ địa chỉ trực tiếp (Direct)
+Lệnh này làm việc ở chế độ địa chỉ tức thời (Immediate)
+
+Đáp án đúng: Lệnh này làm việc ở chế độ địa chỉ dịch chuyển (Displacement)
+Vì theo ý nghĩa của các chế độ địa chỉ trong kiến trúc tập lệnh của bộ vi xử lý
+Tham khảo: bài 4, phần 1: Giới thiệu kiến trúc tập lệnh
+
+Câu 7: Xét các chế độ địa chỉ Immediate, Direct, Register, Indirect. Chế độ địa chỉ nào có cả hai toán hạng đều là thanh ghi?
+Register
+Immediate
+Indirect
+Direct
+
+Đáp án đúng: Register
+Vì theo ý nghĩa của các chế độ địa chỉ trong kiến trúc tập lệnh của bộ vi xử lý
+Tham khảo: bài 4, phần 1: Giới thiệu kiến trúc tập lệnh
+
+Câu 8: Giả sử cần cộng giá trị của thanh ghi AX với 100, khi đó chúng ta sẽ sử dụng lệnh ADD theo chế độ địa chỉ nào?
+Immediate
+Register
+Indirect
+Direct
+Đáp án đúng: Immediate
+Vì theo ý nghĩa của các chế độ địa chỉ trong kiến trúc tập lệnh của bộ vi xử lý
+Tham khảo: bài 4, phần 1: Giới thiệu kiến trúc tập lệnh
+
+Câu 9: Giả sử đã lưu giá trị 100 vào biến X trong bộ nhớ có địa chỉ là A651H, sau đó thực hiện lệnh ADD để cộng giá trị trong thanh ghi AX với giá trị trong biến X. 
+Khi đó lệnh ADD làm việc ở chế độ địa chỉ nào?    
+Direct
+Immediate
+Register
+Indirect
+
+Đáp án đúng: Direct
+Vì theo ý nghĩa của các chế độ địa chỉ trong kiến trúc tập lệnh của bộ vi xử lý
+Tham khảo: bài 4, phần 1: Giới thiệu kiến trúc tập lệnh
+
+Câu 10: Lệnh nào sau đây làm việc ở chế độ địa chỉ Stack?
+POP BX
+ADD AX, BX
+MOVE AX, [BX + SI]
+SUB SP
+
+Đáp án đúng: POP BX
+Vì theo ý nghĩa của các chế độ địa chỉ trong kiến trúc tập lệnh của bộ vi xử lý
+Tham khảo: bài 4, phần 1: Giới thiệu kiến trúc tập lệnh
+
+Câu 11: Trong hợp ngữ lệnh LOAD được sử dụng để làm gì?
+Nạp dữ liệu từ bộ nhớ vào thanh ghi
+Lưu dữ liệu trong thanh ghi vào bộ nhớ
+Cộng giá trị giữa hai thanh ghi
+Xóa dữ liệu trên thanh ghi
+
+Đáp án đúng: Nạp dữ liệu từ bộ nhớ vào thanh ghi
+Vì theo ý nghĩa của lệnh LOAD
+Tham khảo: bài 4, phần 2: Lệnh hợp ngữ và toán hạng
+
+Câu 12: Trong hợp ngữ lệnh STORE được sử dụng để làm gì?
+
+Lưu dữ liệu trong thanh ghi vào bộ nhớ
+Nạp dữ liệu từ bộ nhớ vào thanh ghi
+Cộng giá trị giữa hai thanh ghi
+Xóa dữ liệu trên thanh ghi
+
+Đáp án đúng: Lưu dữ liệu trong thanh ghi vào bộ nhớ
+Vì theo ý nghĩa của lệnh STORE
+Tham khảo: bài 4, phần 2: Lệnh hợp ngữ và toán hạng
+
+Câu 13: Trong hợp ngữ lệnh nào sẽ lưu dữ liệu từ thanh ghi vào Stack 
+
+PUSH
+POP
+STORE
+LOAD
+
+Đáp án đúng: PUSH
+Vì theo ý nghĩa của lệnh PUSH
+Tham khảo: bài 4, phần 2: Lệnh hợp ngữ và toán hạng
+
+Câu 14: Trong hợp ngữ lệnh nào sẽ lấy dữ liệu từ bộ nhớ Stack vào thanh ghi 
+POP
+PUSH
+STORE
+LOAD
+
+Đáp án đúng: POP
+Vì theo ý nghĩa của lệnh POP
+Tham khảo: bài 4, phần 2: Lệnh hợp ngữ và toán hạng
+
+Câu 15: Xét các lệnh sau:
+(1) MOVE AX, BX
+(2) LOAD AX, [12345H]
+(3) STORE [12345H], AX
+(4) PUSH AX
+(5) POP BX
+Trong các lệnh trên lệnh nào có chiều di chuyển dữ liệu từ thanh ghi vào bộ nhớ?
+Lệnh (3) và lệnh (4)
+Lệnh (1) và (2)
+Lệnh (2) và (3)
+Lệnh (1), (2) và (5)
+Đáp án đúng: Lệnh (3) và lệnh (4)
+Vì lệnh STORE sẽ lưu dữ liệu từ thanh ghi vào bộ nhớ, và lệnh PUSH sẽ đẩy dữ liệu từ thanh ghi vào bộ nhớ Stack
+Tham khảo: bài 4, phần 2: Lệnh hợp ngữ và toán hạng
+
+Câu 16: Xét các lệnh sau:
+(1) MOVE AX, BX
+(2) LOAD AX, [12345H]
+(3) STORE [12345H], AX
+(4) PUSH AX
+(5) POP BX
+Trong các lệnh trên lệnh nào có chiều di chuyển dữ liệu từ bộ nhớ vào thanh ghi?
+Lệnh (2) và lệnh (5)
+Lệnh (3) và (4)
+Lệnh (2) và (3)
+Lệnh (1), (2) và (5)
+Đáp án đúng: Lệnh (2) và lệnh (5)
+Vì lệnh LOAD sẽ nạp dữ liệu từ thanh ghi AX vào bộ nhớ, và lệnh POP sẽ lấy dữ liệu từ bộ nhớ Stack vào thanh ghi
+Tham khảo: bài 4, phần 2: Lệnh hợp ngữ và toán hạng
+
+Câu 17: Xét các lệnh sau:
+(1) MOVE AX, BX
+(2) LOAD AX, [12345H]
+(3) STORE [12345H], AX
+(4) PUSH AX
+(5) POP BX
+Trong các lệnh trên lệnh nào có chiều di chuyển dữ liệu từ thanh ghi đến thanh ghi?
+Lệnh (1)
+Lệnh (3) và (4)
+Lệnh (2) và (3)
+Lệnh (1), (2) và (5)
+Đáp án đúng: Lệnh (1)
+Vì lệnh MOVE sẽ nạp dữ liệu từ thanh ghi BX vào thanh ghi AX
+Tham khảo: bài 4, phần 2: Lệnh hợp ngữ và toán hạng
+
+Câu 18: Xét các lệnh sau:
+(1) MOVE AX, BX
+(2) LOAD AX, [12345H]
+(3) STORE [12345H], AX
+(4) PUSH AX
+(5) POP BX
+Trong các lệnh trên lệnh nào làm việc ở chế độ địa chỉ trực tiếp?
+Lệnh (2) và (3)
+Lệnh (3) và (4)
+Lệnh (2) và (3)
+Lệnh (1), (2) và (5)
+Đáp án đúng: Lệnh (2) và (3)
+Vì theo ý nghĩa của các lệnh Load và Store
+Tham khảo: bài 4, phần 2: Lệnh hợp ngữ và toán hạng
+
+Câu 19: Giả sử thực hiện lệnh ADD AX, BX, sau đó thực hiện tiếp lệnh SUB AX, CX. Khi đó giá trị trong thanh ghi AX phục thuộc vào các yếu tố nào?
+Giá trị khởi tạo của AX, BX và CX
+Giá trị của cờ CF trước khi thực hiện lệnh
+Địa chỉ của các thanh ghi AX, BX và CX
+Dung lượng bộ nhớ RAM
+Đáp án đúng: Giá trị khởi tạo của AX, BX và CX
+Vì lệnh ADD và SUB sẽ thực hiện phép cộng và trừ các giá trị trong các thanh ghi.
+Tham khảo: bài 4, phần 2: Lệnh hợp ngữ và toán hạng
+
+Câu 20: Xét lệnh hợp ngữ ADD AX, BX. Khẳng định nào đúng?
+Cộng giá trị của AX với BX và lưu kết quả vào AX
+Cộng giá trị của AX với BX và lưu kết quả vào BX
+Cộng giá trị của thanh ghi AX với giá trị trong bộ nhớ được trỏ bởi BX và lưu kết quả vào AX
+Cộng giá trị của thanh ghi BX với giá trị trong bộ nhớ được trỏ bởi AX và lưu kết quả vào AX
+Đáp án đúng: Cộng giá trị của AX với BX và lưu kết quả vào AX
+Vì theo cú pháp của lệnh ADD
+Tham khảo: bài 4, phần 2: Lệnh hợp ngữ và toán hạng
+
+Câu 21: Xét lệnh hợp ngữ SUB AX, BX. Khẳng định nào đúng?
+Trừ giá trị của AX với BX và lưu kết quả vào AX
+Trừ giá trị của AX với BX và lưu kết quả vào BX
+Trừ giá trị của thanh ghi AX với giá trị trong bộ nhớ được trỏ bởi BX và lưu kết quả vào AX
+Trừ giá trị của thanh ghi BX với giá trị trong bộ nhớ được trỏ bởi AX và lưu kết quả vào AX
+Đáp án đúng: Trừ giá trị của AX với BX và lưu kết quả vào AX
+Vì theo cú pháp của lệnh SUB
+Tham khảo: bài 4, phần 2: Lệnh hợp ngữ và toán hạng
+
+Câu 22: Giả sử thực hiện lần lượt ba lệnh hợp ngữ sau:
+MOVE AL, 10
+MOVE BL, 11
+MOVE CL, 12
+ADD AL, BL
+Khi đó giá trị tính theo hệ hexa trên các thanh ghi AL, BL và CL bằng bao nhiêu?
+AL = 15, BL = 0B, CL = 0C
+AL = 16, BL = 0A, CL = 0C
+AL = 0A, BL = 0B, CL = 0C
+AL = 15, BL = 0B, CL = 0A
+
+Đáp án đúng: AL = 15, BL = 0B, CL = 0C
+Vì lệnh ADD cộng giá trị tại AL với BL và kết quả lưu vào thanh ghi AL. Kết quả AL là 10+11 = 21 = 15H
+Tham khảo: bài 4, phần 2: Lệnh hợp ngữ và toán hạng
+
+Câu 23: Giả sử thực hiện lần lượt ba lệnh hợp ngữ sau:
+MOVE AL, 10
+MOVE BL, 11
+MOVE CL, 12
+SUB AL, BL
+Khi đó giá trị tính theo hệ hexa trên các thanh ghi AL, BL và CL bằng bao nhiêu?
+AL = FF, BL = 0B, CL = 0C
+AL = 15, BL = 0B, CL = 0C
+AL = 0A, BL = 0B, CL = 0C
+AL = 15, BL = 0B, CL = 0A
+
+Đáp án đúng: AL = FF, BL = 0B, CL = 0C
+Vì lệnh SUB trừ giá trị tại AL với BL và kết quả lưu vào thanh ghi AL. Kết quả AL là 10- 11 = -1 = FFH
+Tham khảo: bài 4, phần 2: Lệnh hợp ngữ và toán hạng
+
+
+  
