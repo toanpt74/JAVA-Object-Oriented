@@ -1,5 +1,3 @@
-https://yjdoc2.github.io/8086-emulator-web/compile
-
 CAU HOI TB
 ==============================
 Câu 1
@@ -232,7 +230,7 @@ Trừ giá trị của thanh ghi BX với giá trị trong bộ nhớ được t
 Vì theo cú pháp của lệnh SUB
 Tham khảo: bài 4, phần 2: Lệnh hợp ngữ và toán hạng
 
-Câu 22: Giả sử thực hiện lần lượt ba lệnh hợp ngữ sau:
+Câu 22: Giả sử thực hiện lần lượt các lệnh hợp ngữ sau:
 MOVE AL, 10
 MOVE BL, 11
 MOVE CL, 12
@@ -247,7 +245,7 @@ AL = 15, BL = 0B, CL = 0A
 Vì lệnh ADD cộng giá trị tại AL với BL và kết quả lưu vào thanh ghi AL. Kết quả AL là 10+11 = 21 = 15H
 Tham khảo: bài 4, phần 2: Lệnh hợp ngữ và toán hạng
 
-Câu 23: Giả sử thực hiện lần lượt ba lệnh hợp ngữ sau:
+Câu 23: Giả sử thực hiện lần lượt các lệnh hợp ngữ sau:
 MOVE AL, 10
 MOVE BL, 11
 MOVE CL, 12
@@ -255,12 +253,407 @@ SUB AL, BL
 Khi đó giá trị tính theo hệ hexa trên các thanh ghi AL, BL và CL bằng bao nhiêu?
 AL = FF, BL = 0B, CL = 0C
 AL = 15, BL = 0B, CL = 0C
-AL = 0A, BL = 0B, CL = 0C
-AL = 15, BL = 0B, CL = 0A
+AL = 0A, BL = 11, CL = 12
+AL = FF, BL = 11, CL = 12
 
 Đáp án đúng: AL = FF, BL = 0B, CL = 0C
 Vì lệnh SUB trừ giá trị tại AL với BL và kết quả lưu vào thanh ghi AL. Kết quả AL là 10- 11 = -1 = FFH
 Tham khảo: bài 4, phần 2: Lệnh hợp ngữ và toán hạng
 
+Câu 24: Giả sử thực hiện lần lượt các lệnh hợp ngữ sau:
+MOVE AL, 0xFF
+MOVE BL, 1
+ADD AL, BL
+Khi đó giá trị tính theo hệ hexa trên các thanh ghi AL, BL và cờ CF bằng bao nhiêu?
+AL = 00, BL = 01, CF = 01
+AL = FF, BL = 00, CF = 00
+AL = 00, BL = 00, CF = 01
+AL = FF, BL = 01, CF = 01
 
-  
+Đáp án đúng: AL = 00, BL = 01, CF = 01
+Vì lệnh ADD trừ giá trị tại AL với BL và kết quả lưu vào thanh ghi AL. Do AL có giá trị là FF = 1111.1111 => AL + BL = 1111.1111 + 0000.0001 = 0000.0000 => kết quả trong AL là 00 và cờ CF =1
+Tham khảo: bài 4, phần 2: Lệnh hợp ngữ và toán hạng
+
+Câu 25: Giả sử thực hiện lần lượt các lệnh hợp ngữ sau:
+MOVE AL, 0xFF
+MOVE BL, 0xFF
+ADD AL, BL
+Khi đó giá trị tính theo hệ hexa trên các thanh ghi AL, BL và cờ CF bằng bao nhiêu?
+AL = FE, BL = FF, CF = 01
+AL = FF, BL = FF, CF = 01
+AL = FE, BL = FF, CF = 00
+AL = FE, BL = 00, CF = 01
+
+Đáp án đúng: AL = FE, BL = FF, CF = 01
+Vì lệnh ADD trừ giá trị tại AL với BL và kết quả lưu vào thanh ghi AL. Do AL có giá trị là FF = 1111.1111 => AL + BL = 1111.1111 + 1111.1111 = 1111.1110 = FE => kết quả trong AL là 00 và cờ CF =1
+Tham khảo: bài 4, phần 2: Lệnh hợp ngữ và toán hạng
+
+Câu 26: Giả sử thanh ghi AL đang có giá trị là 00H, xét các lệnh hợp ngữ sau: 
+(1) MOVE AL, 1
+(2) SUB AL, 0x1
+(3) INC AL
+(4) DEC AL
+(5) NEG AL
+Lệnh hợp ngữ nào sẽ chuyển AL thành 01H?
+Lệnh (1) và (3)
+Lệnh (1), (2) và (4)
+Lệnh (2) và (4)
+Lệnh (4) và (5)
+Đáp án đúng: Lệnh (1) và (3)
+Vì lệnh MOVE nạp giá trị 1 vào AL và lệnh INC tăng thanh ghi AL lên 1.
+Tham khảo: bài 4, phần 2: Lệnh hợp ngữ và toán hạng
+
+Câu 27: Giả sử thanh ghi AL đang có giá trị là 00H, xét các lệnh hợp ngữ sau: 
+(1) MOVE AL, 1
+(2) SUB AL, 0x1
+(3) INC AL
+(4) DEC AL
+(5) NEG AL
+Lệnh hợp ngữ nào sẽ chuyển AL thành FF?
+Lệnh (2) và (4)
+Lệnh (1) và (3)
+Lệnh (1), (2) và (4)
+Lệnh (4) và (5)
+Đáp án đúng: Lệnh (2) và (4)
+Vì lệnh SUB sẽ thực hiện AL <- AL - 1 = -1 (FFH), lệnh DEC AL sẽ giảm AL đi 1 và khi đó AL = -1 (FFH).
+Tham khảo: bài 4, phần 2: Lệnh hợp ngữ và toán hạng
+
+Câu 27: Lệnh hợp ngữ nào sau đây sẽ reset thanh ghi AL về 0.
+AND AL, 0x00
+MOV AL, 0xFF
+AND AL, 0xFF
+DEC AL
+Đáp án đúng: AND AL, 0x00
+Vì lệnh AND thực hiện phép and theo từng bit trên thanh ghi AL => AL AND 0x00 sẽ cho kết quả là 00H
+Tham khảo: bài 4, phần 2: Lệnh hợp ngữ và toán hạng
+
+Câu 28: Lệnh hợp ngữ nào sau đây sẽ thiết lập thanh ghi AL về 1111.1111.
+OR AL, 0xFF
+MOV AL, 0x0F
+AND AL, 0xFF
+DEC AL
+Đáp án đúng: OR AL, 0xFF
+Vì lệnh OR thực hiện phép hoặc theo từng bit trên thanh ghi AL => AL OR 0xFF sẽ cho kết quả là FFH
+Tham khảo: bài 4, phần 2: Lệnh hợp ngữ và toán hạng
+
+Câu 29: Thực hiện lần lượt các lệnh hợp ngữ sau:
+MOV AL, 0x05
+MOV BL, 0xFF
+AND AL, BL
+Khi đó thanh ghi AL và BL có giá trị bằng bao nhiêu ở hệ hexa?
+AL = 05H, BL = FFH
+AL = FFH, BL = 00H
+AL = 15H, BL = FFH
+AL = FFH, BL = 05H
+
+Đáp án đúng: AL = 05H, BL = FFH
+Vì lệnh AND thực hiện "và" theo từng bit giữa hai thanh ghi AL và BL => Kết quả AL = 05H.
+Tham khảo: bài 4, phần 2: Lệnh hợp ngữ và toán hạng
+
+Câu 30: Thực hiện lần lượt các lệnh hợp ngữ sau:
+MOV AL, 0x05
+MOV BL, 0xFF
+OR AL, BL
+Khi đó thanh ghi AL và BL có giá trị bằng bao nhiêu ở hệ hexa?
+AL = FFH, BL = FFH
+AL = FFH, BL = 00H
+AL = 15H, BL = FFH
+AL = FFH, BL = 05H
+
+Đáp án đúng: AL = FFH, BL = FFH
+Vì lệnh OR thực hiện "hoặc" theo từng bit giữa hai thanh ghi AL và BL => Kết quả AL = FFH.
+Tham khảo: bài 4, phần 2: Lệnh hợp ngữ và toán hạng
+
+Câu 31: Thực hiện lần lượt các lệnh hợp ngữ sau:
+MOVE AL, 0x05
+MOVE BL, 0x05
+CMP AL, BL
+Khi đó giá trị các cờ CF, ZF có giá trị như thế nào?
+ZF = 1, CF = 0
+ZF = 1, CF = 1
+ZF = 0, CF = 1
+ZF = 0, CF = 0
+Đáp án đúng: ZF = 1, CF = 0
+Vì giá trị trên AL và BL bằng nhau, do vậy cờ ZF = 1 và cờ CF = 0
+Tham khảo: bài 4, phần 2: Lệnh hợp ngữ và toán hạng
+
+Câu 32: Thực hiện lần lượt các lệnh hợp ngữ sau:
+MOVE AL, 0x06
+MOVE BL, 0x05
+CMP AL, BL
+Khi đó giá trị các cờ CF, ZF có giá trị như thế nào?
+ZF = 0, CF = 0
+ZF = 1, CF = 0
+ZF = 1, CF = 1
+ZF = 0, CF = 1
+
+Đáp án đúng: ZF = 0, CF = 0
+Vì giá trị trên AL = 0x06 lớn hơn giá trị trong BL, do vậy cờ ZF = 0 và cờ CF = 0
+Tham khảo: bài 4, phần 2: Lệnh hợp ngữ và toán hạng
+
+Câu 33: Thực hiện lần lượt các lệnh hợp ngữ sau:
+MOVE AL, 0x05
+MOVE BL, 0x06
+CMP AL, BL
+Khi đó giá trị các cờ CF, ZF có giá trị như thế nào?
+ZF = 0, CF = 1
+ZF = 0, CF = 0
+ZF = 1, CF = 0
+ZF = 1, CF = 1
+Đáp án đúng: ZF = 0, CF = 1
+Vì giá trị trên AL = 0x05 nhỏ hơn giá trị trong BL, do vậy cờ ZF = 0 và cờ CF = 1
+Tham khảo: bài 4, phần 2: Lệnh hợp ngữ và toán hạng
+
+===========================================
+CÂU KHÓ
+=================================================
+
+Câu 1: Thực hiện lần lượt các lệnh hợp ngữ sau:
+MOVE AL, 0x05
+MOVE BL, 0x06
+INC AL
+CMP AL, BL
+Khi đó giá trị các cờ CF, ZF có giá trị như thế nào?
+ZF = 1, CF = 0
+ZF = 0, CF = 1
+ZF = 0, CF = 0
+ZF = 1, CF = 1
+Đáp án đúng: ZF = 1, CF = 0
+Vì giá trị trên AL = 0x05, sau khi thực hiện lệnh INC AL thì AL có giá trị là 06H và bằng giá trị của BL. Do vậy cờ ZF = 1 và cờ CF = 0
+Tham khảo: bài 4, phần 2: Lệnh hợp ngữ và toán hạng
+
+Câu 2: Thực hiện lần lượt các lệnh hợp ngữ sau:
+MOVE AL, 0x05
+MOVE BL, 0x05
+INC AL
+CMP AL, BL
+Khi đó giá trị các cờ CF, ZF có giá trị như thế nào?
+ZF = 0, CF = 0
+ZF = 1, CF = 0
+ZF = 0, CF = 1
+ZF = 1, CF = 1
+Đáp án đúng: ZF = 0, CF = 0
+Vì giá trị trên AL = 0x05, sau khi thực hiện lệnh INC AL thì AL có giá trị là 06H, lơn hơn BL. Do vậy khi thực hiện lệnh CMP AL, BL thì cờ ZF = 0 và cờ CF = 0
+Tham khảo: bài 4, phần 2: Lệnh hợp ngữ và toán hạng
+
+Câu 3: Thực hiện lần lượt các lệnh hợp ngữ sau:
+MOVE AL, 0x06
+MOVE BL, 0x05
+INC BL
+CMP AL, BL
+JNL L1
+DEC AL
+L1:
+MOVE AL, BL
+Khi đó giá trị trên các thanh ghi AL, BL và cờ ZF bằng bao nhiêu?
+AL = 06H, BL = 06H, ZF = 1
+AL = 06H, BL = 05H, ZF = 0
+AL = 06H, BL = 05H, ZF = 1
+AL = 06H, BL = 06H, ZF = 0
+Đáp án đúng: AL = 06H, BL = 06H, ZF = 1
+Vì lệnh INC BL sẽ tăng BL lên 1=> giá trị trên AL bằng BL. Lệnh so sánh CMP AL, BL sẽ đặt cờ ZF = 1 vì AL = BL
+Tham khảo: bài 4, phần 2: Lệnh hợp ngữ và toán hạng
+
+Câu 4: Thực hiện lần lượt các lệnh hợp ngữ sau:
+MOVE AL, 0x01
+MOVE BL, 0x05
+INC BL
+CMP AL, BL
+JL L1
+NEG AL
+L1:
+NEG BL
+
+Khi đó giá trị trên các thanh ghi AL, BL và cờ CF bằng bao nhiêu?
+AL = 01H, BL = FAH, CF = 1
+AL = 01H, BL = FAH, CF = 0
+AL = FFH, BL = FAH, CF = 1
+AL = 01H, BL = 05H, CF = 1
+
+Đáp án đúng: AL = 01H, BL = FAH, CF = 1
+Vì lệnh INC BL sẽ tăng BL lên 1=> giá trị trên AL nhỏ hơn BL. Lệnh so sánh CMP AL, BL sẽ đặt cờ CF = 1 và đảo dấu BL
+Tham khảo: bài 4, phần 2: Lệnh hợp ngữ và toán hạng  
+
+Câu 5: Thực hiện lần lượt các lệnh hợp ngữ sau:
+MOVE AL, 0x01
+MOVE BL, 0x05
+INC BL
+CMP AL, BL
+JG L1
+NEG AL
+L1:
+NEG BL
+
+Khi đó giá trị trên các thanh ghi AL, BL và cờ CF bằng bao nhiêu?
+AL = FFH, BL = FAH, CF = 1
+AL = 01H, BL = FAH, CF = 0
+AL = FFH, BL = FAH, CF = 1
+AL = 01H, BL = 05H, CF = 1
+
+Đáp án đúng: AL = FFH, BL = FAH, CF = 1
+Vì lệnh INC BL sẽ tăng BL lên 1=> giá trị trên AL nhỏ hơn BL. Lệnh so sánh CMP AL, BL sẽ đặt cờ CF = 1,  sau đó sẽ đảo dấu cả BL và AL
+Tham khảo: bài 4, phần 2: Lệnh hợp ngữ và toán hạng  
+
+Câu 6: Xét các lệnh hợp ngữ sau:
+MOV AL, 0x02
+MOV CL, 0x01
+RCL AL
+Khi thực hiện lần lượt các lệnh trên thanh ghi AL và cờ CF có giá trị bằng bao nhiêu ở hệ hexa?
+AL = 0x04, CF = 0x00
+AL = 0x04, CF = 0x01
+AL = 0x02, CF = 0x00
+AL = 0x02, CF = 0x01
+
+Đáp án đúng: AL = 0x04, CF = 0x00
+Vì lệnh RCL sẽ thực hiện quay trái 1 bit với thanh ghi AL và bit MSB được nạp vào thanh ghi cờ CF
+Tham khảo: bài 4, phần 2: Lệnh hợp ngữ và toán hạng
+
+Câu 7: Xét các lệnh hợp ngữ sau:
+MOV AL, 0x02
+MOV CL, 0x02
+RCL AL
+Khi thực hiện lần lượt các lệnh trên thanh ghi AL và cờ CF có giá trị bằng bao nhiêu ở hệ hexa?
+AL = 0x08, CF = 0x00
+AL = 0x08, CF = 0x01
+AL = 0x04, CF = 0x00
+AL = 0x08, CF = 0x02
+
+Đáp án đúng: AL = 0x08, CF = 0x00
+Vì lệnh RCL sẽ thực hiện quay trái 2 bit với thanh ghi AL và bit MSB được nạp vào thanh ghi cờ CF
+Tham khảo: bài 4, phần 2: Lệnh hợp ngữ và toán hạng 
+
+Câu 8: Xét các lệnh hợp ngữ sau:
+MOV AL, 0x80
+MOV CL, 0x01
+RCL AL
+Khi thực hiện lần lượt các lệnh trên thanh ghi AL và cờ CF có giá trị bằng bao nhiêu ở hệ hexa?
+AL = 0x00, CF = 0x01
+AL = 0x02, CF = 0x01
+AL = 0x04, CF = 0x00
+AL = 0x08, CF = 0x02
+
+Đáp án đúng: AL = 0x00, CF = 0x01
+Vì lệnh RCL sẽ thực hiện quay trái 1 bit với thanh ghi AL và bit MSB được nạp vào thanh ghi cờ CF
+Tham khảo: bài 4, phần 2: Lệnh hợp ngữ và toán hạng 
+
+Câu 9: Xét các lệnh hợp ngữ sau:
+MOV AL, 0x81
+MOV CL, 0x01
+RCL AL
+Khi thực hiện lần lượt các lệnh trên thanh ghi AL và cờ CF có giá trị bằng bao nhiêu ở hệ hexa?
+AL = 0x02, CF = 0x01
+AL = 0x00, CF = 0x01
+AL = 0x04, CF = 0x00
+AL = 0x01, CF = 0x01
+
+Đáp án đúng: AL = 0x02, CF = 0x01
+Vì lệnh RCL sẽ thực hiện quay trái 1 bit với thanh ghi AL và bit MSB được nạp vào thanh ghi cờ CF
+Tham khảo: bài 4, phần 2: Lệnh hợp ngữ và toán hạng 
+
+Câu 10: Xét các lệnh hợp ngữ sau:
+MOV AL, 0x81
+MOV CL, 0x02
+RCL AL
+Khi thực hiện lần lượt các lệnh trên thanh ghi AL và cờ CF có giá trị bằng bao nhiêu ở hệ hexa?
+AL = 0x05, CF = 0x00
+AL = 0x02, CF = 0x01
+AL = 0x04, CF = 0x00
+AL = 0x08, CF = 0x01
+
+Đáp án đúng: AL = 0x05, CF = 0x00
+Vì lệnh RCL sẽ thực hiện quay trái 2 bit với thanh ghi AL và bit MSB được nạp vào thanh ghi cờ CF
+Tham khảo: bài 4, phần 2: Lệnh hợp ngữ và toán hạng 
+
+Câu 11: Xét các lệnh hợp ngữ sau:
+MOV AL, 0x81
+MOV CL, 0x02
+ROL AL
+Khi thực hiện lần lượt các lệnh trên thanh ghi AL và cờ CF có giá trị bằng bao nhiêu ở hệ hexa?
+AL = 0x06, CF = 0x00
+AL = 0x05, CF = 0x01
+AL = 0x04, CF = 0x00
+AL = 0x08, CF = 0x01
+
+Đáp án đúng: AL = 0x06, CF = 0x00
+Vì theo nguyên lý hoạt động của lệnh ROL
+Tham khảo: bài 4, phần 2: Lệnh hợp ngữ và toán hạng 
+
+Câu 12: Xét các lệnh hợp ngữ sau:
+MOV AL, 0x81
+MOV CL, 0x01
+ROR AL
+Khi thực hiện lần lượt các lệnh trên thanh ghi AL và cờ CF có giá trị bằng bao nhiêu ở hệ hexa?
+AL = 0xC0, CF = 0x01
+AL = 0xC0, CF = 0x00
+AL = 0x04, CF = 0x00
+AL = 0x08, CF = 0x01
+
+Đáp án đúng: AL = 0xC0, CF = 0x01
+Vì theo nguyên lý hoạt động của lệnh ROR
+Tham khảo: bài 4, phần 2: Lệnh hợp ngữ và toán hạng 
+
+Câu 13: Xét các lệnh hợp ngữ sau:
+MOV AL, 0x01
+MOV CL, 0x01
+ROR AL
+Khi thực hiện lần lượt các lệnh trên thanh ghi AL và cờ CF có giá trị bằng bao nhiêu ở hệ hexa?
+AL = 0x80, CF = 0x01
+AL = 0xC0, CF = 0x00
+AL = 0x80, CF = 0x00
+AL = 0x08, CF = 0x01
+
+Đáp án đúng: AL = 0x80, CF = 0x01
+Vì theo nguyên lý hoạt động của lệnh ROR
+Tham khảo: bài 4, phần 2: Lệnh hợp ngữ và toán hạng 
+
+Câu 14: Xét các lệnh hợp ngữ sau:
+MOV AL, 0x01
+MOV CL, 0x01
+RCR AL
+Khi thực hiện lần lượt các lệnh trên thanh ghi AL và cờ CF có giá trị bằng bao nhiêu ở hệ hexa?
+AL = 0x00, CF = 0x01
+AL = 0x00, CF = 0x00
+AL = 0x80, CF = 0x00
+AL = 0x08, CF = 0x01
+
+Đáp án đúng: AL = 0x00, CF = 0x01
+Vì theo nguyên lý hoạt động của lệnh RCR
+Tham khảo: bài 4, phần 2: Lệnh hợp ngữ và toán hạng 
+
+Câu 15: Xét các lệnh hợp ngữ sau:
+MOV AL, 0x01
+MOV CL, 0x01
+INC AL
+SHL AL
+Khi thực hiện lần lượt các lệnh trên thanh ghi AL và cờ CF có giá trị bằng bao nhiêu ở hệ hexa?
+AL = 0x04, CF = 0x00
+AL = 0x04, CF = 0x01
+AL = 0x02, CF = 0x00
+AL = 0x08, CF = 0x01
+
+Đáp án đúng: AL = 0x04, CF = 0x00
+Vì lệnh INC AL sẽ tăng AL lên 1 => AL có giá trị là 02H, lệnh SHL dịch trái một bit thanh ghi AL => Kết quả AL là 04H
+Tham khảo: bài 4, phần 2: Lệnh hợp ngữ và toán hạng 
+
+Câu 16: Xét các lệnh hợp ngữ sau:
+MOV AL, 0x01
+MOV CL, 0x01
+INC AL
+SHR AL
+Khi thực hiện lần lượt các lệnh trên thanh ghi AL và cờ CF có giá trị bằng bao nhiêu ở hệ hexa?
+AL = 0x01, CF = 0x00
+AL = 0x01, CF = 0x01
+AL = 0x02, CF = 0x00
+AL = 0x08, CF = 0x01
+
+Đáp án đúng: AL = 0x01, CF = 0x00
+Vì lệnh INC AL sẽ tăng AL lên 1 => AL có giá trị là 02H, lệnh SHR dịch phải một bit thanh ghi AL => Kết quả AL là 01H
+Tham khảo: bài 4, phần 2: Lệnh hợp ngữ và toán hạng 
+
+
+
+
+
+
+
+
