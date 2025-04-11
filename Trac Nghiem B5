@@ -1,0 +1,574 @@
+CAU HOI DỄ
+==============================
+Câu 1
+
+Trong bộ vi xử lý, thành phần nào thuộc BIU?
+Các thanh ghi đoạn và thanh ghi con trỏ
+ALU (Arithmetic Logic Unit) bộ xử lí số học và logic
+Các thanh ghi đa năng và thanh ghi cờ
+CU (Control unit)khối điều khiển
+Đúng, đáp án đúng là: Các thanh ghi đoạn và thanh ghi con trỏ
+Vì theo cấu trúc và các thành phần của bộ vi xử lý
+Tham khảo: bài 5, phần 1: Tổ chức của bộ vi xử lý
+
+Câu 2:
+Trong bộ vi xử lý, thành phần nào thuộc BIU?
+Hàng đợi lệnh (instruction stream byte queue – Prefetch Queue)
+ALU (Arithmetic Logic Unit) bộ xử lí số học và logic
+Các thanh ghi đa năng và thanh ghi cờ
+CU (Control unit)khối điều khiển
+Đúng, đáp án đúng là: Hàng đợi lệnh (instruction stream byte queue – Prefetch Queue)
+Vì theo cấu trúc và các thành phần của bộ vi xử lý
+Tham khảo: bài 5, phần 1: Tổ chức của bộ vi xử lý
+
+
+Câu 3:
+Trong bộ vi xử lý, thành phần nào thuộc BIU?
+Bộ điều khiển logic bus (Control system)
+ALU (Arithmetic Logic Unit) bộ xử lí số học và logic
+Các thanh ghi đa năng và thanh ghi cờ
+CU (Control unit)khối điều khiển
+Đúng, đáp án đúng là: Bộ điều khiển logic bus (Control system)
+Vì theo cấu trúc và các thành phần của bộ vi xử lý
+Tham khảo: bài 5, phần 1: Tổ chức của bộ vi xử lý
+
+Câu 4:
+Trong bộ vi xử lý, thành phần nào thuộc EU?
+ALU (Arithmetic Logic Unit) bộ xử lí số học và logic
+Các thanh ghi đoạn và thanh ghi con trỏ
+Bộ điều khiển logic bus (Control system)
+Hàng đợi lệnh (instruction stream byte queue – Prefetch Queue)
+Đúng, đáp án đúng là: ALU (Arithmetic Logic Unit) bộ xử lí số học và logic
+Vì theo cấu trúc và các thành phần của bộ vi xử lý
+Tham khảo: bài 5, phần 1: Tổ chức của bộ vi xử lý
+
+Câu 5:
+Trong bộ vi xử lý, thành phần nào thuộc EU?
+Các thanh ghi đa năng và thanh ghi cờ
+Các thanh ghi đoạn và thanh ghi con trỏ
+Bộ điều khiển logic bus (Control system)
+Hàng đợi lệnh (instruction stream byte queue – Prefetch Queue)
+Đúng, đáp án đúng là: Các thanh ghi đa năng và thanh ghi cờ
+Vì theo cấu trúc và các thành phần của bộ vi xử lý
+Tham khảo: bài 5, phần 1: Tổ chức của bộ vi xử lý
+
+Câu 6:
+Mục đích chính của việc phân chia bộ vi xử lý làm hai thành phần là BIU và EU là gì?
+Tăng tốc độ tính toán của bộ vi xử lý
+Thuận tiện trong thiết kế bộ vi xử lý
+Tăng tính kế thừa trong thiết kế bộ vi xử lý
+Tăng số lượng các thanh ghi đa năng cho bộ vi xử lý
+Đúng, đáp án đúng là: Tăng tốc độ tính toán của bộ vi xử lý
+Vì Mỗi chu kì lệnh của VXL gồm 2 thời khoảng: Lấy lệnh từ bộ nhớ và thực thi lệnh, Khi EU đang thực hiện lệnh trước thì BIU có thể thực hiện tìm lệnh tiếp theo trong bộ nhớ, giải mã lệnh và đưa vào hàng đợi lệnh
+Tham khảo: bài 5, phần 1: Tổ chức của bộ vi xử lý
+
+Câu 7: Mục đích chính của các thanh ghi trong bộ vi xử lý là gì?
+A. Lưu trữ dữ liệu tạm thời cho các tính toán của CPU
+B. Tăng tốc độ truy cập bộ nhớ chính
+C. Làm bộ nhớ đệm cho việc trao đổi dữ liệu với các thiết bị ngoại vi
+D. Chuyển đổi dữ liệu giữa các định dạng khác nhau
+
+Đúng, đáp án đúng là: Lưu trữ dữ liệu tạm thời cho các tính toán của CPU
+Vì theo ý nghĩa và tác dụng của các thanh ghi trong bộ vi xử lý
+Tham khảo: bài 5, phần 1: Tổ chức của bộ vi xử lý
+
+Câu 8: Bộ vi xử lý 8086, bus địa chỉ có 20 dây tín hiệu. 8086 có thể quản lý được không gian bộ nhớ tối đa là bao nhiêu?
+1MB
+4MB
+8MB
+16MB
+Đúng, đáp án đúng là: 1MB
+Vì 2^20 = 1MB
+Tham khảo: bài 5, phần 1: Tổ chức của bộ vi xử lý 
+
+Câu 9: Bộ vi xử lý 8086, sử dụng hai thanh ghi 16 bit để quản lý địa chỉ bộ nhớ, vậy không gian bộ nhớ ảo của 8086 là bao nhiêu?
+4GB
+4MB
+16MB
+8GB
+Đúng, đáp án đúng là: 4GB
+Vì 64KB*64KB = 4 GB
+Tham khảo: bài 5, phần 1: Tổ chức của bộ vi xử lý  
+
+Câu 10: Đâu là thanh ghi mục đích chung (main register) trong bộ vi xử lý 8086?
+AX
+SI
+DI
+BP
+Đúng, đáp án đúng là: AX
+Vì theo cấu trúc của các thanh ghi trong bộ vi xử lý 8086
+Tham khảo: bài 5, phần 1: Tổ chức của bộ vi xử lý  
+
+Câu 10: Đâu là thanh ghi đoạn (segment register) trong bộ vi xử lý 8086?
+DS
+AX
+DI
+BX
+Đúng, đáp án đúng là: DS
+Vì theo cấu trúc của các thanh ghi trong bộ vi xử lý 8086
+Tham khảo: bài 5, phần 1: Tổ chức của bộ vi xử lý 
+
+Câu 11: Đâu là thanh ghi chỉ số (Index register) trong bộ vi xử lý 8086?
+SI
+AX
+DS
+IP
+Đúng, đáp án đúng là: SI
+Vì theo cấu trúc của các thanh ghi trong bộ vi xử lý 8086
+Tham khảo: bài 5, phần 1: Tổ chức của bộ vi xử lý  
+
+Câu 12: Đâu KHÔNG phải là thanh ghi chỉ số (Index register) trong bộ vi xử lý 8086?
+IP
+SI
+DI
+BP
+Đúng, đáp án đúng là: IP
+Vì theo cấu trúc của các thanh ghi trong bộ vi xử lý 8086
+Tham khảo: bài 5, phần 1: Tổ chức của bộ vi xử lý  
+
+Câu 13: Trong 8086, cờ nào là cờ điều khiển?
+IF
+CF
+PF
+ZF
+Đúng, đáp án đúng là: IF
+Vì theo ý nghĩa và phân loại các cờ trong 8086
+Tham khảo: bài 5, phần 1: Tổ chức của bộ vi xử lý  
+
+Câu 14: Trong 8086, cờ nào là cờ điều khiển?
+DF
+SF
+PF
+AF
+Đúng, đáp án đúng là: DF
+Vì theo ý nghĩa và phân loại các cờ trong 8086
+Tham khảo: bài 5, phần 1: Tổ chức của bộ vi xử lý  
+
+Câu 15: Trong 8086, cờ nào là cờ điều khiển?
+TF
+SF
+PF
+AF
+Đúng, đáp án đúng là: TF
+Vì theo ý nghĩa và phân loại các cờ trong 8086
+Tham khảo: bài 5, phần 1: Tổ chức của bộ vi xử lý  
+Câu 16: Loại bộ nhớ ROM nào sử dụng tia cực tím để xóa dữ liệu?
+EPROM
+EEPROM
+ROM
+PROM
+Đúng, đáp án đúng là: EPROM 
+Vì theo cấu trúc của các loại ROM
+Tham khảo: bài 5, phần 2: Tổ chức bộ nhớ
+
+Câu 17: Loại bộ nhớ ROM nào sử dụng dòng điện để xóa dữ liệu?
+EEPROM
+EPROM
+ROM
+PROM
+Đúng, đáp án đúng là: EEPROM 
+Vì theo cấu trúc của các loại ROM
+Tham khảo: bài 5, phần 2: Tổ chức bộ nhớ
+
+
+Câu 18: Trong tổ chức one-bus của bộ vi xử lý, ba thành phần bộ nhớ, thanh ghi và đơn vị xử lý được thiết kế với các bus như thế nào?
+Ba thành phần này chia sẻ một bus dùng chung để truyền dữ liệu
+Ba thành phần sử dụng ba đường bus riêng biệt để truyền dữ liệu
+Ba thành phần kết nối trực tiếp bằng một mạng chuyển mạch
+Đơn vị xử lý sử dụng một bus riêng biệt với hai thành phần còn lại
+
+Đúng, đáp án đúng là: Ba thành phần này chia sẻ một bus dùng chung để truyền dữ liệu
+Vì theo cấu trúc one-bus của bộ vi xử lý
+Tham khảo: bài 5, phần 1: Tổ chức của bộ vi xử lý  
+
+Câu 19: Trong kiến trúc one-bus của bộ vi xử lý, một phép toán có 2 toán hạng, cần bao nhiêu chu kỳ đồng hồ để di chuyển dữ liệu?
+2
+1
+4
+3
+Đúng, đáp án đúng là: 2
+Vì theo cấu trúc one-bus của bộ vi xử lý
+Tham khảo: bài 5, phần 1: Tổ chức của bộ vi xử lý  
+
+Câu 20: Trong kiến trúc vi xử lý, mỗi lệnh gồm bao nhiêu giai đoạn
+5
+4
+8
+6
+Đúng, đáp án đúng là: 5
+Vì các giai đoạn thực thi một lệnh trong bộ vi xử lý là: IF, ID, EX, Memory access, RS
+Tham khảo: bài 5, phần 1: Tổ chức của bộ vi xử lý 
+
+Câu 21: Giai đoạn nào trong 5 giai đoạn thực thi lệnh của bộ vi xử lý chịu trách nhiệm đọc lệnh từ bộ nhớ
+IF: Instruction Fetch  
+ID: Instruction Decode
+EX: Execute
+MEM ACCESS
+Đúng, đáp án đúng là: IF: Instruction Fetch
+Vì theo vai trò của các giai đoạn thực thi một lệnh trong bộ vi xử lý  
+Tham khảo: bài 5, phần 1: Tổ chức của bộ vi xử lý 
+
+Câu 22: Có 5 giai đoạn khi thực hiện lệnh của bộ vi xử lý là IF, ID, EX, MEM ACCESS và RS. Đâu là thứ tự đúng khi thực thi một lệnh?
+IF -> ID -> EX -> MEM ACCESS -> RS 
+ID -> IF -> EX -> MEM ACCESS -> RS
+EX -> ID -> IF -> MEM ACCESS -> RS
+MEM ACCESS -> IF -> ID -> EX -> RS
+
+Đúng, đáp án đúng là: IF -> ID -> EX -> MEM ACCESS -> RS 
+Vì theo vai trò của các giai đoạn thực thi một lệnh trong bộ vi xử lý  
+Tham khảo: bài 5, phần 1: Tổ chức của bộ vi xử lý 
+
+========================
+CAU HỎI TB
+
+Câu 1: Một địa chỉ logic có segment là 1234H và offset là 0020H. Địa chỉ này có địa chỉ vật lý như thế nào?
+12360H
+12340H
+12560H
+12350H
+
+Đúng, đáp án đúng là: 12360H 
+Vì địa chỉ vật lý = Segment * 16 + Offset
+Tham khảo: bài 5, phần 1: Tổ chức của bộ vi xử lý 
+
+Câu 2: Một địa chỉ logic có segment là A651H và offset là E021H. Địa chỉ này có địa chỉ vật lý như thế nào?
+B4531H
+B5531H
+A8712H
+B6521H
+
+Đúng, đáp án đúng là: B4531H 
+Vì địa chỉ vật lý = Segment * 16 + Offset
+Tham khảo: bài 5, phần 1: Tổ chức của bộ vi xử lý 
+Câu 3: Trong bộ vi xử lý 8086, nếu thanh ghi CS (Code segment) có giá trị là 1234H và thanh ghi con trỏ lệnh IP có giá trị là 0050H. Khi đó địa chỉ vật lý của lệnh bằng bao nhiêu?
+12390H
+12350H
+12348H
+12391H
+
+Đúng, đáp án đúng là: 12390H 
+Vì địa chỉ lệnh = CS * 16 + IP
+Tham khảo: bài 5, phần 1: Tổ chức của bộ vi xử lý 
+
+Câu 4: Trong bộ vi xử lý 8086, nếu thanh ghi CS (Code segment) có giá trị là 2345H và thanh ghi con trỏ lệnh IP có giá trị là 0010H. Khi đó địa chỉ vật lý của lệnh bằng bao nhiêu?
+23460H
+24460H
+13460H
+12391H
+
+Đúng, đáp án đúng là: 23460H 
+Vì địa chỉ lệnh = CS * 16 + IP
+Tham khảo: bài 5, phần 1: Tổ chức của bộ vi xử lý 
+
+Câu 5: Giả sử trong bộ vi xử lý 8086, thanh ghi đoạn dữ liệu DS có giá trị là 2115H, và thanh ghi chỉ số nguồn SI có giá trị là 0013H. Khi đó địa chỉ của dữ liệu được truy xuất qua DS:SI bằng bao nhiêu?
+21163H
+21263H
+21162H
+21160H
+
+Đúng, đáp án đúng là: 21163H 
+Vì địa dữ liệu được xác định = DS * 16 + SI
+Tham khảo: bài 5, phần 1: Tổ chức của bộ vi xử lý 
+
+Câu 6: Giả sử trong bộ vi xử lý 8086, thanh ghi đoạn dữ liệu DS có giá trị là 5110H, và thanh ghi chỉ số nguồn SI có giá trị là 1013H. Khi đó địa chỉ của dữ liệu được truy xuất qua DS:SI bằng bao nhiêu?
+52113H
+51113H
+52123H
+52110H
+
+Đúng, đáp án đúng là: 52113H 
+Vì địa dữ liệu được xác định = DS * 16 + SI
+Tham khảo: bài 5, phần 1: Tổ chức của bộ vi xử lý 
+
+Câu 7: Trong 8086, cờ nào là cờ trạng thái?
+CF
+TF
+IF
+DF
+Đúng, đáp án đúng là: CF
+Vì theo ý nghĩa và phân loại các cờ trong 8086
+Tham khảo: bài 5, phần 1: Tổ chức của bộ vi xử lý  
+
+Câu 8: Trong 8086, cờ nào là cờ trạng thái?
+OF
+TF
+IF
+DF
+Đúng, đáp án đúng là: OF
+Vì theo ý nghĩa và phân loại các cờ trong 8086
+Tham khảo: bài 5, phần 1: Tổ chức của bộ vi xử lý  
+
+Câu 9: Đâu là đặc trưng của công nghệ SRAM?
+Xây dựng dựa trên các phần tử điện tử cơ bản là mạch lật (Flip-Flop)
+Xây dựng dựa trên các phần tử điện tử cơ bản là tụ điện
+Tốc độ truy cập chậm hơn SRAM
+Mật độ tích hợp cao
+Đúng, đáp án đúng là: Xây dựng dựa trên các phần tử điện tử cơ bản là mạch lật (Flip-Flop)
+Vì theo tính chất của SRAM
+Tham khảo: bài 5, phần 2: Tổ chức bộ nhớ
+
+Câu 10: Đâu là đặc trưng của công nghệ SRAM?
+Tốc độ truy cập nhanh
+Xây dựng dựa trên các phần tử điện tử cơ bản là tụ điện
+Tốc độ truy cập chậm hơn SRAM
+Mật độ tích hợp cao
+Đúng, đáp án đúng là: Tốc độ truy cập nhanh
+Vì theo tính chất của SRAM
+Tham khảo: bài 5, phần 2: Tổ chức bộ nhớ
+
+Câu 11: Đâu là đặc trưng của công nghệ SRAM?
+Mật độ tích hợp thấp
+Xây dựng dựa trên các phần tử điện tử cơ bản là tụ điện
+Tốc độ truy cập chậm hơn SRAM
+Mật độ tích hợp cao
+Đúng, đáp án đúng là: Mật độ tích hợp thấp
+Vì theo tính chất của SRAM
+Tham khảo: bài 5, phần 2: Tổ chức bộ nhớ
+
+Câu 12: Đâu là đặc trưng của công nghệ DRAM?
+Xây dựng dựa trên các phần tử điện tử cơ bản là tụ điện
+Xây dựng dựa trên các phần tử điện tử cơ bản là mạch lật (Flip-Flop)
+Tốc độ truy cập nhanh
+Mật độ tích hợp thấp
+Đúng, đáp án đúng là: Xây dựng dựa trên các phần tử điện tử cơ bản là tụ điện
+Vì theo tính chất của DRAM
+Tham khảo: bài 5, phần 2: Tổ chức bộ nhớ
+
+Câu 13: Đâu là đặc trưng của công nghệ DRAM?
+Mật độ tích hợp cao
+Xây dựng dựa trên các phần tử điện tử cơ bản là mạch lật (Flip-Flop)
+Tốc độ truy cập nhanh
+Mật độ tích hợp thấp
+Đúng, đáp án đúng là: Mật độ tích hợp cao
+Vì theo tính chất của DRAM
+Tham khảo: bài 5, phần 2: Tổ chức bộ nhớ
+
+Câu 14: Giả sử sử dụng phương pháp tổ chức chip nhớ theo từ với sự lựa chọn tuyến tính. 
+Nếu cần tổ chức một ma trận nhớ có 8 từ, mỗi từ là 8bit, cần ít nhất bao nhiêu dây địa chỉ?
+3
+8
+4
+2
+Đúng, đáp án đúng là: 3
+Vì với 3 dây địa chỉ, quản lý được 2^3 từ nhớ = 8
+Tham khảo: bài 5, phần 2: Tổ chức bộ nhớ
+
+Câu 15: Giả sử sử dụng phương pháp tổ chức chip nhớ theo từ với sự lựa chọn tuyến tính. 
+Nếu cần tổ chức một ma trận nhớ có 64 từ, mỗi từ là 8bit, cần ít nhất bao nhiêu dây địa chỉ?
+6
+8
+4
+3
+Đúng, đáp án đúng là: 6
+Vì với 3 dây địa chỉ, quản lý được 2^6 từ nhớ = 64
+Tham khảo: bài 5, phần 2: Tổ chức bộ nhớ
+Câu 16: Khẳng định nào đúng về cấu trúc của đĩa từ
+Từ trụ (Cylinder) là một tập hợp các track có cùng bán kính
+Từ trụ (Cylinder) là một tập hợp các track
+Từ trụ (Cylinder) là một tập hợp các sector trên cùng một track
+Từ trụ (Cylinder) là một nhóm các sector liên tiếp
+
+Đúng, đáp án đúng là: Từ trụ (Cylinder) là một tập hợp các track có cùng bán kính
+Vì theo cấu trúc của đĩa từ
+Tham khảo: bài 5, phần 2: Tổ chức bộ nhớ
+
+Câu 16: Trong đĩa từ khái niệm nào mô tả vùng nhỏ nhất có thể lưu trữ dữ liệu?
+Sector
+Cylinder
+Track
+Cluster
+Đúng, đáp án đúng là: Sector
+Vì theo cấu trúc của đĩa từ
+Tham khảo: bài 5, phần 2: Tổ chức bộ nhớ
+
+
+Câu 17: Khẳng định nào đúng về Cluster trong cấu trúc đĩa từ
+Cluster là một nhóm các sector liên tiếp
+Cluster là một nhóm các track có cùng bán kính
+Cluster là một nhóm các sector trên các track có cùng bán kính
+Cluster là một nhóm các Cylinder
+
+Đúng, đáp án đúng là: Cluster là một nhóm các sector liên tiếp
+Vì theo cấu trúc của đĩa từ
+Tham khảo: bài 5, phần 2: Tổ chức bộ nhớ
+
+Câu 18: Giả sử chúng ta có vi mạch nhớ DRAM với dung lượng 16 từ x 32 bit. Nếu sử dụng phương pháp tổ chức bộ nhớ theo kiểu giải mã hai bước, 
+khi đó bộ giải mã cần ít nhất bao nhiêu dây địa chỉ và ít nhất bao nhiêu dây chọn cột (mỗi từ logic gồm 8 bit)
+4 dây địa chỉ và 2 dây chọn cột
+2 dây địa chỉ và 4 dây chọn cột
+4 dây địa chỉ và 1 dây chọn cột
+4 dây địa chỉ và 4 dây chọn cột
+
+Đúng, đáp án đúng là: 4 dây địa chỉ và 2 dây chọn cột
+Vì có 16 từ => Cần ít nhất 4 dây địa chỉ (2^4=16), mỗi từ 8 bit, vậy có 32/8 = 4 từ => Cần 2 dây chọn cột.
+Tham khảo: bài 5, phần 2: Tổ chức bộ nhớ
+
+Câu 19: Giả sử chúng ta có vi mạch nhớ DRAM với dung lượng 32 từ x 16 bit. Nếu sử dụng phương pháp tổ chức bộ nhớ theo kiểu giải mã hai bước, 
+khi đó bộ giải mã cần ít nhất bao nhiêu dây địa chỉ và ít nhất bao nhiêu dây chọn cột (mỗi từ logic gồm 8 bit)
+5 dây địa chỉ và 1 dây chọn cột
+5 dây địa chỉ và 2 dây chọn cột
+4 dây địa chỉ và 1 dây chọn cột
+4 dây địa chỉ và 4 dây chọn cột
+
+Đúng, đáp án đúng là: 5 dây địa chỉ và 1 dây chọn cột
+Vì có 32 từ => Cần ít nhất 5 dây địa chỉ (2^5=32), mỗi từ 8 bit, vậy có 16/8 = 2 từ => Cần 1 dây chọn cột.
+Tham khảo: bài 5, phần 2: Tổ chức bộ nhớ
+
+Câu 20: Ngắt trong bộ vi xử lý là gì?
+Một cơ chế giúp CPU tạm dừng nhiệm vụ hiện tại để thực hiện một nhiệm vụ khác
+Một cơ chế giúp CPU kiểm tra trạng thái của các thiết bị liên tục
+Một phương pháp giúp tăng tốc độ tính toán của CPU
+Một phương pháp quản lý bộ nhớ hiệu quản
+
+Đúng, đáp án đúng là: Một cơ chế giúp CPU tạm dừng nhiệm vụ hiện tại để thực hiện một nhiệm vụ khác
+Vì theo định nghĩa về ngắt trong bộ vi xử lý
+Tham khảo: bài 5, phần 1: Tổ chức của bộ vi xử lý
+
+Câu 21: Khi xảy ra một ngắt, bộ vi xử lý thực hiện công việc nào đầu tiên?
+Lưu trạng thái hiện tại của chương trình vào bộ nhớ ngăn xếp
+Khôi phục trang thái của chương trình trước đó
+Nạp địa chỉ của chương trình con phục vụ ngắt vào thanh ghi con trỏ lệnh IP
+Vô hiệu hóa các chương trình khác để tránh xung đột
+
+Đúng, đáp án đúng là: Một cơ chế giúp CPU tạm dừng nhiệm vụ hiện tại để thực hiện một nhiệm vụ khác
+Vì theo các bước thực thi ngắt trong bộ vi xử lý
+Tham khảo: bài 5, phần 1: Tổ chức của bộ vi xử lý
+
+Câu 22: Khẳng định nào đúng về kỹ thuật pipline trong bộ vi xử lý
+Là kỹ thuật chia nhỏ lệnh thành nhiều công đoạn và thực hiện song song các công đoạn của các lệnh
+Là kỹ thuật thực hiện tuần tự nhiều lệnh 
+Là kỹ thuật thực hiện song song nhiều lệnh trong bộ vi xử lý
+Là kỹ thuật sử dụng bộ nhớ đệm nhằm tăng tốc độ tính toán cho bộ vi xử lý
+
+Đúng, đáp án đúng là: Là kỹ thuật chia nhỏ lệnh thành nhiều công đoạn và thực hiện song song các công đoạn của các lệnh
+Vì theo khái niệm về pipline
+Tham khảo: bài 5, phần 1: Tổ chức của bộ vi xử lý
+ 
+=========================================
+CÂU KHÓ
+
+Câu 1: Xung đột dữ liệu trong kỹ thuật pipline xảy ra khi nào?
+Khi lệnh phụ thuộc vào kết quả của lệnh trước, nhưng kết quả đó chưa sẵn sàng
+Khi hai công đoạn trong pipline sử dụng chung một tài nguyên phần cứng
+Khi lệnh trong pipline không thể xác định được đường dẫn thực thi do rẽ nhánh
+Khi lệnh trong pipline giải mã sai
+
+Đúng, đáp án đúng là: Khi lệnh phụ thuộc vào kết quả của lệnh trước, nhưng kết quả đó chưa sẵn sàng
+Vì theo khái niệm về pipline
+Tham khảo: bài 5, phần 1: Tổ chức của bộ vi xử lý
+
+Câu 2: Xung đột về cấu trúc trong pipline thường xảy ra khi nào?
+Khi các lệnh cần truy cập cùng một tài nguyên phần cứng nhưng tài nguyên đó không đủ để xử lý đồng thời
+Khi lệnh phụ thuộc vào dữ liệu chưa được lưu của lệnh trước
+Khi CPU gặp lệnh rẽ nhánh và không thể xác định đường dẫn tiếp theo
+Khi lệnh bị giải mã sai dẫn đến việc thực thi không chính xác
+Đúng, đáp án đúng là: Khi các lệnh cần truy cập cùng một tài nguyên phần cứng nhưng tài nguyên đó không đủ để xử lý đồng thời
+Vì theo khái niệm về pipline
+Tham khảo: bài 5, phần 1: Tổ chức của bộ vi xử lý
+
+Câu 3: Trong bộ vi xử lý 8086, giả sử thanh ghi AL có giá trị 127. Lệnh nào sẽ thiết lập cờ SF của bộ vị xử lý lên 1?
+ADD AL, 1
+SUB AL, 1
+MOVE AL, 1
+AND AL, 1
+
+Đúng, đáp án đúng là: ADD AL, 1
+Vì thanh ghi AL là 8 bit, do vậy 127 + 1 = -128, kết quả tính toán là số âm thì cờ SF =1 
+Tham khảo: bài 5, phần 1: Tổ chức của bộ vi xử lý
+
+Câu 4: Trong bộ vi xử lý 8086, giả sử thanh ghi AL có giá trị 127. Lệnh nào sẽ thiết lập cờ SF=0?
+AND AL, 1
+ADD AL, 1
+SUB AL, 128
+ADD AL, 2
+
+Đúng, đáp án đúng là: AND AL, 1
+Vì thanh ghi AL là 8 bit, các lệnh ADD AL, 1; SUB AL, 128, và ADD AL, 2 đều có kết quả là số âm => Cờ SF = 1. 
+Tham khảo: bài 5, phần 1: Tổ chức của bộ vi xử lý
+
+
+Câu 5: Trong bộ vi xử lý 8086, giả sử thanh ghi AL có giá trị 250. Lệnh nào sẽ thiết lập cờ CF=1?
+ADD AL, 10
+ADD AL, 1
+SUB AL, 20
+ADD AL, 5
+
+Đúng, đáp án đúng là: ADD AL, 10
+Vì thanh ghi AL là 8 bit, lệnh ADD AL, 10 sẽ cho kết quả vượt quá 255 và sẽ phải nhớ bit 1 vào cờ CF
+Tham khảo: bài 5, phần 1: Tổ chức của bộ vi xử lý
+
+Câu 6: Trong bộ vi xử lý 8086, giả sử thanh ghi AL có giá trị 100. Lệnh nào sẽ thiết lập cờ CF=1?
+SUB AL, 255
+ADD AL, 1
+SUB AL, 20
+ADD AL, 5
+
+Đúng, đáp án đúng là: SUB AL, 255
+Vì thanh ghi AL là 8 bit, lệnh SUB AL, 255 có giá trị trong AL nhỏ hơn 255 => phải mượn bit, do vậy cờ CF = 1.
+Tham khảo: bài 5, phần 1: Tổ chức của bộ vi xử lý
+
+Câu 7: Trong bộ vi xử lý 8086, giả sử thanh ghi AL có giá trị 100. Lệnh nào sẽ thiết lập cờ CF=0?
+ADD AL, 101
+SUB AL, 255
+ADD AL, 156
+SUB AL, 101
+
+Đúng, đáp án đúng là: ADD AL, 101
+Vì thanh ghi AL là 8 bit, các lệnh SUB AL, 255, ADD AL, 156 và lệnh SUB AL, 101 đều phải mượn hoặc nhớ bit => Cờ CF = 1. 
+Tham khảo: bài 5, phần 1: Tổ chức của bộ vi xử lý
+
+Câu 8: Biết địa chỉ vật lý của dữ liệu xác định bởi cặp thanh ghi DS:SI là 12360H. Địa chỉ Segment và Offset của DS và SI bằng bao nhiêu?
+DS = 1235H; SI = 10H
+DS = 1230H; SI = 50H
+DS = 1235H; SI = 60H
+DS = 1234H; SI = 10H
+
+Đúng, đáp án đúng là: DS = 1235H; SI = 10H
+Vì địa chỉ vật lý = DS * 16H + SI
+Tham khảo: bài 5, phần 1: Tổ chức của bộ vi xử lý
+
+Câu 9: Biết địa chỉ vật lý của dữ liệu xác định bởi cặp thanh ghi DS:SI là 12360H. Địa chỉ Segment và Offset của DS và SI bằng bao nhiêu?
+DS = 1231H; SI = 50H
+DS = 1231H; SI = 60H
+DS = 1232H; SI = 50H
+DS = 1234H; SI = 10H
+
+Đúng, đáp án đúng là: DS = 1231H; SI = 50H
+Vì địa chỉ vật lý = DS * 16H + SI
+Tham khảo: bài 5, phần 1: Tổ chức của bộ vi xử lý
+
+Câu 10: Biết địa chỉ vật lý của lệnh đang thực thi trong bộ vi xử lý 8086 là 42350H. Hỏi giá trị trong thanh ghi CS và IP bằng bao nhiêu?  
+CS = 3234H, IP = 10H
+CS = 3234H, IP = 15H
+CS = 3235H, IP = 10H
+CS = 3235H, IP = 05H
+
+Đúng, đáp án đúng là: CS = 3234H, IP = 10H
+Vì địa chỉ vật lý của lệnh = CS * 16H + IP
+Tham khảo: bài 5, phần 1: Tổ chức của bộ vi xử lý
+
+Câu 11: Biết địa chỉ vật lý của lệnh đang thực thi trong bộ vi xử lý 8086 là AD350H. Hỏi giá trị trong thanh ghi CS và IP bằng bao nhiêu?  
+CS = AB35H, IP = 2000H
+CS = AB35H, IP = 100H
+CS = AD35H, IP = 2000H
+CS = AB35H, IP = 1000H
+
+Đúng, đáp án đúng là: CS = AB35H, IP = 2000H
+Vì địa chỉ vật lý của lệnh = CS * 16H + IP
+Tham khảo: bài 5, phần 1: Tổ chức của bộ vi xử lý
+
+Câu 12: Biết địa chỉ vật lý của lệnh đang thực thi trong bộ vi xử lý 8086 là 11535H. Hỏi giá trị trong thanh ghi CS và IP bằng bao nhiêu?  
+CS = 1141H, IP = 125H
+CS = 1141H, IP = 100H
+CS = 1142H, IP = 125H
+CS = 2141H, IP = 100H
+
+Đúng, đáp án đúng là: CS = 1141H, IP = 125H
+Vì địa chỉ vật lý của lệnh = CS * 16H + IP
+Tham khảo: bài 5, phần 1: Tổ chức của bộ vi xử lý
+
+
+
+
+
+ 
