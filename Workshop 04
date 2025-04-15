@@ -1,0 +1,101 @@
+/*
+Chương trình quản lý sách
+Xây dựng lớp Book với các thuộc tính
+Author author;
+String title;
+int noOfPages;
+boolean fiction;
+
+*/
+import java.util.Scanner;
+import java.util.ArrayList;
+class Book{
+	private String author;
+	private String title;
+	private int noOfPages;
+	private boolean fiction;
+	
+	public String getAuthor(){return author;}
+	public void setAuthor(String author){this.author = author;}
+	public String getTitle(){return this.title;}
+	public void setTitle(String title){this.title = title;}
+	
+	public Book(){}
+	public Book(String author, String title, int pages, boolean fiction){
+		this.author = author;
+		this.title = title;
+		this.noOfPages = pages;
+		this.fiction = fiction;
+	}
+	
+	public boolean accepts(){
+		Scanner sc = new Scanner(System.in);
+		 String author;
+		 String title;
+		 int noOfPages;
+		 int fiction;
+		 System.out.print("Nhap ten sach:");
+		 title = sc.nextLine();
+		 System.out.print("Nhap ten tac gia:");
+		 author = sc.nextLine();
+		 System.out.print("Nhap so trang:");
+		 noOfPages = Integer.parseInt(sc.nextLine());
+		 System.out.print("La sach vien tuong (1-Dung, 0: Sai):");
+		 fiction = Integer.parseInt(sc.nextLine());
+		 if(fiction ==1) this.fiction = true;
+		 else this.fiction = false;
+		 if(title!="" && author!="" && noOfPages > 10){
+			 this.title = title;
+			 this.author = author;
+			 this.noOfPages = noOfPages;
+			 return true;
+		 }
+		 else return false;
+	}
+	
+	public void display(){	
+		System.out.printf("%15s|%15s|%5d|%5s%c", this.title, this.author, this.noOfPages, this.fiction,'\n');
+		
+	}		
+}
+
+
+public class Main{
+	public static void main(String[] args){
+		ArrayList<Book> books = new  ArrayList<>();
+		Book b ;
+		int chon;
+		Scanner sc = new Scanner(System.in);
+		while(true){
+			System.out.println("CHUONG TRINH QUAN LY SACH");
+			System.out.println("1-Them sach");
+			System.out.println("2-In sach");
+			System.out.println("3-Cap nhat thong tin sach");
+			System.out.println("4-Xoa sach");
+			System.out.println("0-Thoat");
+			System.out.print("Bam phim 1-4 chon chuc nang, bam phim 0 de thoat: ");
+			chon = Integer.parseInt(sc.nextLine());
+			if(chon==0) break;
+			switch(chon){
+				case 1:
+					b = new Book();
+					if(b.accepts()){
+						books.add(b);
+					}
+					break;
+				case 2:
+					System.out.println("DANH MUC SACH");
+					System.out.printf("%15s|%15s|%5s|%5s%c", "Title", "Author", "Pages", "Fiction",'\n');
+					for(int i=0; i<books.size(); i++)
+					{
+						b = books.get(i);
+						b.display();
+					}
+					break;
+			}
+			
+		}
+		
+		
+	}
+}
