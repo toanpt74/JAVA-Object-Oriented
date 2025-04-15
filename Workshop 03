@@ -1,0 +1,69 @@
+/*
+Chương trình minh họa quản lý danh sách các nguyên tố hóa học
+Mỗi nguyên tố gồm các thông tin cơ bản: number (stt), name (tên nguyên tố), symbol (kí hiệu), weight (khối lượng phân tử)
+*/
+import java.util.Scanner;
+
+class Atom{
+	private int number;
+	private String symbol;
+	private String name;
+	private double weight;
+	public Atom(){}
+	public Atom(int number, String symbol, String name, double weight){
+		this.number = number;
+		this.symbol = symbol;
+		this.name = name;
+		this.weight = weight;
+	}
+	public void display(){
+		System.out.printf("%5d|%8s|%8s|%8.1f%c", number, symbol, name, weight,'\n');
+	}
+	public boolean accepts(){
+		double w = 0;
+		Scanner sc = new Scanner(System.in);
+		System.out.print("Enter atomic number: ");
+		this.number = Integer.parseInt(sc.nextLine());
+		System.out.print("Enter atomic symbol:");
+		this.symbol = sc.nextLine();
+		System.out.print("Enter atomic name:");
+		this.name = sc.nextLine();
+		
+		while(true){
+			System.out.print("Enter atomic weight:");
+			w = Double.parseDouble(sc.nextLine());
+			if(w >=0 && w <=100) {
+				this.weight = w;
+				break;
+			}
+			else{
+				System.out.println("The weight must be greater or equal 0 and less than or equal 100");
+			}
+		}
+		
+		return false;
+	}
+}
+
+public class Main{
+	public static void main(String[] args){
+		int n = 3;
+		Atom[] elements = new Atom[n] ;
+		System.out.println("Please enter the information of atomic");
+		for(int i=0; i<n; i++){
+			System.out.println("The information of atomic " + (i+1));
+			Atom at = new Atom();
+			at.accepts();
+			elements[i] = at;
+		}
+		System.out.println("The information of atomics");	
+		System.out.printf("%5s|%8s|%8s|%9s", "number", "symbol", "name", "weight");
+		System.out.println();
+		for(int i=0; i<n; i++)
+		{
+			Atom at = elements[i];
+			at.display();
+		}
+		
+	}
+}
