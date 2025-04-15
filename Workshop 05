@@ -1,0 +1,118 @@
+/*
+Chương trình quản lý sách
+Xây dựng lớp Book với các thuộc tính
+Author author;
+String title;
+int noOfPages;
+boolean fiction;
+
+*/
+import java.util.Scanner;
+import java.util.ArrayList;
+
+abstract class Employee{
+	private String name;
+	public abstract double getSalary();
+	public Employee(){}
+	public Employee(String name){
+		this.name = name;
+	}
+	public void display(){
+		System.out.println("Name: " + name);
+	}
+}
+
+class Officer extends Employee{
+	double BASICSALARY = 2430000;
+	double bSalary;
+	public Officer(){}
+	public Officer(String name, double bSalary){
+		super(name);
+		this.bSalary = bSalary;
+	}
+	public double getSalary(){
+		double sal = bSalary*BASICSALARY;
+		return sal;
+	}
+	public void display(){
+		super.display();
+		System.out.println("Officer Salary:" + getSalary());
+	}
+}
+class Worker extends Employee{
+	double hrs;
+	double RATE = 1.0;
+	public Worker(){}
+	public Worker(String name, double hrs){
+		super(name);
+		this.hrs = hrs;
+	}
+	public double getSalary(){
+		double sal = RATE*hrs*500000;
+		return sal;
+	}
+	public void display(){
+		super.display();
+		System.out.println("Total hours working: " + hrs + " Salary:" + getSalary());
+	}
+}
+
+public class Main{
+	public static void main(String[] args){
+		
+		ArrayList<Employee> employees = new ArrayList<>(); 
+		int chon;
+		int c=0;
+		Scanner sc = new Scanner(System.in);
+		
+		String _name;
+		double _bsalary;
+		double _hrs;
+		while(true){
+			System.out.println("CHUONG TRINH QUAN LY NHAN SU");
+			System.out.println("1-Them");
+			System.out.println("2- Xem");
+			System.out.println("3-Cap nhat");
+			System.out.println("4-Xoa");
+			System.out.println("0-Thoat");
+			System.out.print("Bam phim 1-4 chon chuc nang, bam phim 0 de thoat: ");
+			chon = Integer.parseInt(sc.nextLine());
+			if(chon==0) break;
+			switch(chon){
+				case 1:
+					System.out.print("Them Worker hay Officer (1-Worker, 2-Officer):"); 
+					c = Integer.parseInt(sc.nextLine());
+					if(c == 1){
+						System.out.print("Enter name: ");	
+						_name = sc.nextLine();
+						System.out.print("Enter working hours: ");
+						_hrs = Double.parseDouble(sc.nextLine());
+						Worker wk = new Worker(_name, _hrs);
+						employees.add(wk);
+					}
+					else if(c==2){
+						System.out.print("Enter name: ");	
+						_name = sc.nextLine();
+						System.out.print("Enter salary: ");
+						_bsalary = Double.parseDouble(sc.nextLine());
+						Officer of = new Officer(_name, _bsalary);
+						employees.add(of);
+					}
+					break;
+				case 2:
+					System.out.println("INFORMATION OF EMPLOYEE"); 
+					for(int i=0; i<employees.size(); i++)
+					{
+						Employee e = employees.get(i);
+						e.display();
+					}
+					System.out.println("Please enter to continue");
+					sc.nextLine();
+					break;
+			}
+			
+		}
+		
+		
+	}
+}
